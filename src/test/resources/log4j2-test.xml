@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="id#%tid %d{yyyy-MM-dd HH:mm:ss} %5p %c{1} - %m%n"/>
+        </Console>
+        <File name="File" fileName="build/reports/all_threads.log" bufferedIO="true">
+            <PatternLayout pattern="id#%tid %d{yyyy-MM-dd HH:mm:ss} %-5p [%c{1}] %m%n"/>
+        </File>
+        <Routing name="File Routing">
+            <Routes pattern="$${ctx:threadId}">
+                <Route>
+                    <File name="File" fileName="build/reports/thread_${ctx:threadId}.log"
+                          bufferedIO="true">
+                        <PatternLayout pattern="id#%tid %d{yyyy-MM-dd HH:mm:ss} %-5p [%c{1}] %m%n"/>
+                    </File>
+                </Route>
+            </Routes>
+        </Routing>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <appender-ref ref="Console" level="debug"/>
+            <appender-ref ref="File" level="trace"/>
+        </Root>
+    </Loggers>
+</Configuration>
