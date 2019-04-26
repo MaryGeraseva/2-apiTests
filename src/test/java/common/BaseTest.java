@@ -20,4 +20,5 @@ public class BaseTest {
     public void tearDown(TestInfo testInfo) {
         log.info(String.format("tearDown %s", testInfo.getDisplayName()));
     }
+
 }

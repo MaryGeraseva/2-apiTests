@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -30,7 +31,9 @@ public class CalculatorPositiveTests extends BaseTest {
     @CsvSource({
             "1, -2147483648, 0",
             "2, 2147483647, 0",
-            "3, 0, 0"
+            "3, -2147483647, -1",
+            "4, 2147483646, 1",
+            "5, 0, 0"
     })
     @Step("add positive test started")
     @Description(value = "test checks the function to add through SOAP API")
@@ -43,8 +46,11 @@ public class CalculatorPositiveTests extends BaseTest {
 
     @ParameterizedTest(name = "subtract positive test #{0}")
     @CsvSource({
-            "1, 1, 1",
-            "2, 2, 2"
+            "1, -2147483648, 0",
+            "2, 2147483647, 0",
+            "3, -2147483647, 1",
+            "4, 2147483646, -1",
+            "5, 0, 0"
     })
     @Step("subtract positive test started")
     @Description(value = "test checks the function to subtract through SOAP API")
@@ -56,8 +62,12 @@ public class CalculatorPositiveTests extends BaseTest {
 
     @ParameterizedTest(name = "multiply positive test #{0}")
     @CsvSource({
-            "1, 1, 1",
-            "2, 2, 2"
+            "1, -2147483648, 0",
+            "2, 2147483647, 0",
+            "3, 0, 0",
+            "4, -2147483648, 1",
+            "5, 2147483647, 1",
+            "6, -2147483647, -1"
     })
     @Step("multiply positive test started")
     @Description(value = "test checks the function to multiply through SOAP API")
@@ -67,10 +77,13 @@ public class CalculatorPositiveTests extends BaseTest {
         assertResult(expectedResult, actualResult);
     }
 
-    @ParameterizedTest(name = "divide positive test #{0}")
-    @CsvSource({
-            "1, 1, 1",
-            "2, 2, 2"
+   @ParameterizedTest(name = "divide positive test #{0}")
+   @CsvSource({
+          "1, 0, -2147483648",
+          "2, 0, 2147483647",
+          "3, -2147483648, 1",
+          "4, 2147483647, 1",
+          "5, -2147483647, -1"
     })
     @Step("divide positive test started")
     @Description(value = "test checks the function to divide through SOAP API")
@@ -80,16 +93,16 @@ public class CalculatorPositiveTests extends BaseTest {
         assertEquals(expectedResult, actualResult, "didn't get expected result");
     }
 
+    @Step("checked result of calculation")
+    private void assertResult(int expectedResult, int actualResult) {
+        assertEquals(expectedResult, actualResult, "didn't get expected result");
+        log.info("checked result of calculation");
+    }
+
 //    @Test
 //    @DisplayName("divide positive test")
 //    public void dividePositiveTest() {
 //        int result = calculator.divide(6,2);
 //        assertResult(1, result);
 //    }
-
-    @Step("checked result of calculation")
-    private void assertResult(int expectedResult, int actualResult) {
-        assertEquals(expectedResult, actualResult, "didn't get expected result");
-        log.info("checked result of calculation");
-    }
 }
