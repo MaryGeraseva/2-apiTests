@@ -1,18 +1,19 @@
 package common;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
 @ExtendWith(TestListener.class)
 public class BaseTest {
-    Logger log = LogManager.getLogger(BaseTest.class);
+    public static Logger log = LogInstance.getLogger();
 
     @BeforeEach
-    public void setUp(TestInfo testInfo) {
+    public void setUp(TestInfo testInfo, ExtensionContext context) {
+        log = LogInstance.setContext(context);
         log.info(String.format("setUp %s", testInfo.getDisplayName()));
     }
 

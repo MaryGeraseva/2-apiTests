@@ -2,27 +2,16 @@
 <Configuration>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="id#%tid %d{yyyy-MM-dd HH:mm:ss} %5p %c{1} - %m%n"/>
+            <PatternLayout pattern="id#%tid %d{yyyy-MM-dd HH:mm:ss} %-5p [%c{1}] %m%n"/>
         </Console>
         <File name="File" fileName="build/reports/logsAll/all_threads.log" bufferedIO="true">
             <PatternLayout pattern="id#%tid %d{yyyy-MM-dd HH:mm:ss} %-5p [%c{1}] %m%n"/>
         </File>
-        <Routing name="File Routing">
-            <Routes pattern="$${ctx:threadId}">
-                <Route>
-                    <File name="File Routing" fileName="build/reports/logsByThread/thread_${ctx:threadId}.log"
-                          bufferedIO="true">
-                        <PatternLayout pattern="id#%tid %d{ABSOLUTE} %-5p [%c{1}] %m%n"/>
-                    </File>
-                </Route>
-            </Routes>
-        </Routing>
     </Appenders>
     <Loggers>
         <Root level="trace">
             <appender-ref ref="Console" level="debug"/>
             <appender-ref ref="File" level="trace"/>
-            <appender-ref ref="File Routing" level="trace"/>
         </Root>
     </Loggers>
 </Configuration>

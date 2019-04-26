@@ -6,12 +6,7 @@ import common.BaseTest;
 import common.ReplaceCamelCase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,8 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CalculatorPositiveTests extends BaseTest {
 
     private CalculatorSoap calculator = new Calculator().getCalculatorSoap();
-    private Logger log = LogManager.getLogger(CalculatorPositiveTests.class);
-
 
     @ParameterizedTest(name = "add positive test #{0}")
     @CsvSource({
