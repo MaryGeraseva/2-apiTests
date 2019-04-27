@@ -86,6 +86,6 @@ public class CalculatorNegativeTests extends BaseTest {
    @Step("checked result of error message")
    private void assertError(String expectedMessage, String actualError) {
         Assertions.assertTrue(actualError.contains(expectedMessage), "didn't get expected result");
-        log.info("got error message");
+//        log.info("got error message");
    }
 }

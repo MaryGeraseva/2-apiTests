@@ -9,11 +9,11 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 @ExtendWith(TestListener.class)
 public class BaseTest {
-    public static Logger log = LogInstance.getLogger();
+    public Logger log = LogInstance.getLogger();
 
     @BeforeEach
-    public void setUp(TestInfo testInfo, ExtensionContext context) {
-        log = LogInstance.setContext(context);
+    public void setUp(TestInfo testInfo) {
+        log = LogInstance.setContext(testInfo);
         log.info(String.format("setUp %s", testInfo.getDisplayName()));
     }
 

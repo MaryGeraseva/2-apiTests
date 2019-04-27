@@ -6,7 +6,9 @@ import common.BaseTest;
 import common.ReplaceCamelCase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -90,6 +92,12 @@ public class CalculatorPositiveTests extends BaseTest {
     private void assertResult(int expectedResult, int actualResult) {
         assertEquals(expectedResult, actualResult, "didn't get expected result");
         log.info("checked result of calculation");
+    }
+
+    @Test
+    public void test () {
+        int expectedResult = 2 * 2;
+        Assertions.assertEquals(expectedResult, 4);
     }
 
 //    @Test

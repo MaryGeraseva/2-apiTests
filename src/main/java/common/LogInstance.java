@@ -2,6 +2,7 @@ package common;
 
 
 import org.apache.log4j.*;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.io.File;
@@ -21,37 +22,39 @@ public class LogInstance {
         return log.get();
     }
 
-    public static synchronized Logger setContext(ExtensionContext context) {
-        Logger logger = LogManager.getLogger(context.getDisplayName());
-        logger.addAppender(appenderConfig(context));
+    public static synchronized Logger setContext(TestInfo testInfo) {
+        Logger logger = LogManager.getLogger(testInfo.getDisplayName());
+        logger.addAppender(appenderConfig(testInfo));
         log.set(logger);
         return log.get();
     }
 
-    private static FileAppender appenderConfig(ExtensionContext context) {
+    private static FileAppender appenderConfig(TestInfo testInfo) {
 
-        String path = getLogsFilePath(context);
+        String path = getLogsFilePath(testInfo);
 
-        try {
-            File file = new File(path);
-            file.getParentFile().mkdir();
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        File file = new File(path);
+
+//        try {
+//            File file = new File(path);
+//            file.getParentFile().mkdir();
+//            file.createNewFile();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         FileAppender appender = new FileAppender();
         appender.setFile(path);
         appender.setLayout(new EnhancedPatternLayout("%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
         appender.setThreshold(Level.TRACE);
-        appender.setAppend(false);
+        appender.setAppend(true);
         appender.activateOptions();
         return appender;
     }
 
-    public static String getLogsFilePath(ExtensionContext context) {
+    public static String getLogsFilePath(TestInfo testInfo) {
        return String.format("%s\\build\\reports\\logsByTestMethod\\%s\\%s.log",
-                System.getProperty("user.dir"), context.getTestMethod().get().getName(), context.getDisplayName());
+                System.getProperty("user.dir"), testInfo.getTestMethod().get().getName(), testInfo.getDisplayName());
     }
 
     public static void resetLog() {
