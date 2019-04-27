@@ -3,10 +3,8 @@ package common;
 
 import org.apache.log4j.*;
 import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.io.File;
-import java.io.IOException;
 
 
 public class LogInstance {
@@ -17,39 +15,41 @@ public class LogInstance {
 
     public static synchronized Logger getLogger() {
         if (log.get() == null) {
-            LogManager.getLogger("Logger");
+            log.set(LogManager.getLogger("Logger"));
         }
         return log.get();
     }
 
     public static synchronized Logger setContext(TestInfo testInfo) {
         Logger logger = LogManager.getLogger(testInfo.getDisplayName());
-        logger.addAppender(appenderConfig(testInfo));
+        logger.addAppender(fileAppenderConfig(testInfo));
+        logger.addAppender(consoleAppenderConfig());
         log.set(logger);
         return log.get();
     }
 
-    private static FileAppender appenderConfig(TestInfo testInfo) {
+    private static FileAppender fileAppenderConfig(TestInfo testInfo) {
 
         String path = getLogsFilePath(testInfo);
 
-        File file = new File(path);
-
-//        try {
-//            File file = new File(path);
-//            file.getParentFile().mkdir();
-//            file.createNewFile();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        new File(path);
 
         FileAppender appender = new FileAppender();
         appender.setFile(path);
-        appender.setLayout(new EnhancedPatternLayout("%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
+        appender.setLayout(new EnhancedPatternLayout("%tid %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
         appender.setThreshold(Level.TRACE);
-        appender.setAppend(true);
+        appender.setAppend(false);
         appender.activateOptions();
         return appender;
+    }
+
+    private static ConsoleAppender consoleAppenderConfig(){
+        ConsoleAppender consoleAppender = new ConsoleAppender();
+        consoleAppender.setLayout(new EnhancedPatternLayout("%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
+        consoleAppender.setThreshold(Level.TRACE);
+        consoleAppender.activateOptions();
+
+        return consoleAppender;
     }
 
     public static String getLogsFilePath(TestInfo testInfo) {

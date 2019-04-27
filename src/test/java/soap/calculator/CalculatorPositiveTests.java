@@ -7,6 +7,7 @@ import common.ReplaceCamelCase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
@@ -97,13 +98,14 @@ public class CalculatorPositiveTests extends BaseTest {
     @Test
     public void test () {
         int expectedResult = 2 * 2;
+        log.info("Test log");
         Assertions.assertEquals(expectedResult, 4);
     }
 
-//    @Test
-//    @DisplayName("divide positive test")
-//    public void dividePositiveTest() {
-//        int result = calculator.divide(6,2);
-//        assertResult(1, result);
-//    }
+    @Test
+    @DisplayName("divide positive test2")
+    public void dividePositiveTest2() {
+        int result = calculator.divide(6,2);
+        assertResult(1, result);
+    }
 }
