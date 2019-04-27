@@ -36,7 +36,7 @@ public class LogInstance {
 
         FileAppender appender = new FileAppender();
         appender.setFile(path);
-        appender.setLayout(new EnhancedPatternLayout("%tid %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
+        appender.setLayout(new EnhancedPatternLayout("%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
         appender.setThreshold(Level.TRACE);
         appender.setAppend(false);
         appender.activateOptions();
