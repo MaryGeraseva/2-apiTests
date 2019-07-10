@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "Calculator", targetNamespace = "http://tempuri.org/", wsdlLocation = "http://www.dneonline.com/calculatorTests.asmx?WSDL")
+@WebServiceClient(name = "Calculator", targetNamespace = "http://tempuri.org/", wsdlLocation = "http://www.dneonline.com/calculator.asmx?WSDL")
 public class Calculator
     extends Service
 {
@@ -30,7 +30,7 @@ public class Calculator
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://www.dneonline.com/calculatorTests.asmx?WSDL");
+            url = new URL("http://www.dneonline.com/calculator.asmx?WSDL");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

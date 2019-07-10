@@ -12,12 +12,11 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.platform.suite.api.SelectPackages;
+
 
 
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayNameGeneration(ReplaceCamelCase.class)
-@SelectPackages("Calculator")
 public class CalculatorNegativeTests extends BaseTest {
 
     private CalculatorSoap calculator = new Calculator().getCalculatorSoap();
