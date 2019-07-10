@@ -1,4 +1,4 @@
-package common;
+package common.reporting;
 
 import org.junit.jupiter.api.DisplayNameGenerator;
 

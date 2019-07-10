@@ -1,9 +1,9 @@
-package soap.calculator;
+package soap.calculatorTests;
 
 import calculator.wsdl2java.Calculator;
 import calculator.wsdl2java.CalculatorSoap;
 import common.BaseTest;
-import common.ReplaceCamelCase;
+import common.reporting.ReplaceCamelCase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
@@ -14,11 +14,13 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.platform.suite.api.SelectPackages;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayNameGeneration(ReplaceCamelCase.class)
+@SelectPackages("Calculator")
 public class CalculatorPositiveTests extends BaseTest {
 
     private CalculatorSoap calculator = new Calculator().getCalculatorSoap();
