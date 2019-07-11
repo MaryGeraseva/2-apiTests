@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 import java.util.Objects;
 
 @Generated("com.robohorse.robopojogenerator")
-public class StoreOrderModel {
+public class OrderModel {
 
     @JsonProperty("petId")
     private Long petId;
@@ -26,10 +26,10 @@ public class StoreOrderModel {
     @JsonProperty("status")
     private String status;
 
-    public StoreOrderModel() {
+    public OrderModel() {
     }
 
-    public StoreOrderModel(Long petId, Integer quantity, Long id, String shipDate, boolean complete, String status) {
+    public OrderModel(Long petId, Integer quantity, Long id, String shipDate, boolean complete, String status) {
         this.petId = petId;
         this.quantity = quantity;
         this.id = id;
@@ -89,7 +89,7 @@ public class StoreOrderModel {
     @Override
     public String toString() {
         return
-                "StoreOrderModel{" +
+                "OrderModel{" +
                         "petId = '" + petId + '\'' +
                         ",quantity = '" + quantity + '\'' +
                         ",id = '" + id + '\'' +
@@ -102,8 +102,8 @@ public class StoreOrderModel {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof StoreOrderModel)) return false;
-        StoreOrderModel order = (StoreOrderModel) o;
+        if (!(o instanceof OrderModel)) return false;
+        OrderModel order = (OrderModel) o;
         return isComplete() == order.isComplete() &&
                 Objects.equals(getPetId(), order.getPetId()) &&
                 Objects.equals(getQuantity(), order.getQuantity()) &&

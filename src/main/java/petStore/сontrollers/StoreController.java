@@ -1,11 +1,12 @@
 package petStore.сontrollers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import common.response.PetStoreResponse;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import petStore.models.storeModel.Inventory;
-import petStore.models.storeModel.StoreOrderModel;
+import petStore.models.storeModel.OrderModel;
 
 import static io.restassured.RestAssured.given;
 
@@ -36,21 +37,29 @@ public class StoreController extends AbstractController{
                 .extract().response().prettyPrint();
     }
 
-    public StoreOrderModel makeOrder(StoreOrderModel order) {
+    public OrderModel makeOrder(OrderModel order) {
         return given()
                 .body(order)
                 .when()
                 .post()
-                .as(StoreOrderModel.class);
+                .as(OrderModel.class);
+    }
+
+    public JsonNode makeOrder(JsonNode order) {
+        return given()
+                .body(order)
+                .when()
+                .post()
+                .as(JsonNode.class);
     }
 
     public Object getOrderById(String id) {
         Response response = given()
                 .when()
                 .get(id);
-        System.out.println(response);
+        response.print();
         if(response.statusCode() == 200) {
-            return response.as(StoreOrderModel.class);
+            return response.as(OrderModel.class);
         } else {
             return response.as(PetStoreResponse.class);
         }
