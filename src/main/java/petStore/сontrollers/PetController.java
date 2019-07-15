@@ -1,11 +1,17 @@
 package petStore.сontrollers;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import common.response.PetStoreResponse;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import petStore.models.petModel.PetModel;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
@@ -56,15 +62,25 @@ public class PetController extends AbstractController {
         }
     }
 
-    ////have to parse&safe data for testing
-    public void getPetsByStatus(String statuses) {
-        given()
-                .spec(new RequestSpecBuilder().setBasePath("/pet/findByStatus").build())
-                .formParam("status", statuses)
-        .when()
-                .get()
-        .then()
-                .extract()
-                .response().getBody().prettyPrint();
+
+    public List<PetModel> getPetsByStatus(String statuses) {
+        List<PetModel> petlist = new ArrayList<>();
+        Response response =
+                given()
+                    .spec(new RequestSpecBuilder().setBasePath("/pet/findByStatus").build())
+                    .formParam("status", statuses)
+                .when()
+                    .get();
+        ObjectMapper mapper = new ObjectMapper();
+        String s = response.body().asString();
+        try {
+            petlist = mapper.readValue(s, new TypeReference<List<PetModel>>(){});
+//            for(PetModel pet : petlist) {
+//                System.out.println(pet);
+//            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return petlist;
     }
 }
