@@ -1,11 +1,9 @@
 package petStore.сontrollers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import common.response.PetStoreResponse;
+import petStore.responses.PetStoreResponse;
 import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
-import petStore.models.storeModel.Inventory;
 import petStore.models.storeModel.OrderModel;
 
 import static io.restassured.RestAssured.given;
@@ -13,28 +11,9 @@ import static io.restassured.RestAssured.given;
 public class StoreController extends AbstractController{
 
     public StoreController() {
-        RestAssured.requestSpecification = new RequestSpecBuilder()
+        RestAssured.requestSpecification = AbstractController.requestSpecBuilder
                 .setBasePath("/store/order")
                 .build();
-    }
-
-    /** method gets unexpected result, deserialization doesn't work
-     *  cause is bag in pet statuses
-     */
-    public Inventory getAllStoreInventory() {
-        return given()
-                .spec(new RequestSpecBuilder().setBasePath("/store/inventory").build())
-                .when()
-                .get().as(Inventory.class);
-    }
-
-    public void getAllStoreInventoryList() {
-        given()
-                .spec(new RequestSpecBuilder().setBasePath("/store/inventory").build())
-                .when()
-                .get()
-                .then()
-                .extract().response().prettyPrint();
     }
 
     public OrderModel makeOrder(OrderModel order) {
@@ -50,13 +29,15 @@ public class StoreController extends AbstractController{
                 .body(order)
                 .when()
                 .post()
+                .then()
+                .extract()
                 .as(JsonNode.class);
     }
 
-    public Object getOrderById(String id) {
+    public Object getOrderById(long id) {
         Response response = given()
                 .when()
-                .get(id);
+                .get(String.valueOf(id));
         response.print();
         if(response.statusCode() == 200) {
             return response.as(OrderModel.class);
@@ -65,9 +46,9 @@ public class StoreController extends AbstractController{
         }
     }
 
-    public void deleteOrder(String id) {
+    public void deleteOrder(long id) {
         given()
                 .when()
-                .delete(id);
+                .delete(String.valueOf(id));
     }
 }

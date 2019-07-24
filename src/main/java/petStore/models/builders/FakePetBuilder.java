@@ -2,6 +2,7 @@ package petStore.models.builders;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import petStore.models.petModel.Category;
 
 public class FakePetBuilder {
 

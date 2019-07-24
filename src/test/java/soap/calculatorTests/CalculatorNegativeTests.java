@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 
 
-@Execution(ExecutionMode.CONCURRENT)
+//@Execution(ExecutionMode.CONCURRENT)
 @DisplayNameGeneration(ReplaceCamelCase.class)
 public class CalculatorNegativeTests extends BaseTest {
 

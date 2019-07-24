@@ -9,13 +9,13 @@ import java.util.Objects;
 public class OrderModel {
 
     @JsonProperty("petId")
-    private Long petId;
+    private long petId;
 
     @JsonProperty("quantity")
-    private Integer quantity;
+    private int quantity;
 
     @JsonProperty("id")
-    private Long id;
+    private long id;
 
     @JsonProperty("shipDate")
     private String shipDate;
@@ -29,7 +29,7 @@ public class OrderModel {
     public OrderModel() {
     }
 
-    public OrderModel(Long petId, Integer quantity, Long id, String shipDate, boolean complete, String status) {
+    public OrderModel(long petId, int quantity, long id, String shipDate, boolean complete, String status) {
         this.petId = petId;
         this.quantity = quantity;
         this.id = id;
@@ -38,27 +38,27 @@ public class OrderModel {
         this.status = status;
     }
 
-    public void setPetId(Long petId) {
+    public void setPetId(long petId) {
         this.petId = petId;
     }
 
-    public Long getPetId() {
+    public long getPetId() {
         return petId;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

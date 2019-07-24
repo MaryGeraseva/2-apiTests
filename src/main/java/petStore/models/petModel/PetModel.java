@@ -16,8 +16,11 @@ public class PetModel {
     @JsonProperty("name")
     private String name;
 
+//    @JsonProperty("id")
+//    private long id;
+
     @JsonProperty("id")
-    private Long id;
+    private String id;
 
     @JsonProperty("category")
     private Category category;
@@ -30,7 +33,27 @@ public class PetModel {
 
     public PetModel() {};
 
-    public PetModel(List<String> photoUrls, String name, Long id, Category category, List<TagsItem> tags, String status) {
+//    public PetModel(long id, Category category, String status) {
+//        this.id = id;
+//        this.category = category;
+//        this.status = status;
+//    }
+
+    public PetModel(String id, Category category, String status) {
+        this.id = id;
+        this.category = category;
+        this.status = status;
+    }
+
+//    public PetModel(List<String> photoUrls, String name, long id, Category category, List<TagsItem> tags, String status) {
+//        this.photoUrls = photoUrls;
+//        this.name = name;
+//        this.id = id;
+//        this.category = category;
+//        this.tags = tags;
+//        this.status = status;
+//    }
+    public PetModel(List<String> photoUrls, String name, String id, Category category, List<TagsItem> tags, String status) {
         this.photoUrls = photoUrls;
         this.name = name;
         this.id = id;
@@ -55,11 +78,18 @@ public class PetModel {
         return name;
     }
 
-    public void setId(Long id) {
+//    public void setId(long id) {
+//        this.id = id;
+//    }
+//
+//    public long getId() {
+//        return id;
+//    }
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -105,9 +135,9 @@ public class PetModel {
         if (this == o) return true;
         if (!(o instanceof PetModel)) return false;
         PetModel petModel = (PetModel) o;
-        return getId() == petModel.getId() &&
-                Objects.equals(getPhotoUrls(), petModel.getPhotoUrls()) &&
+        return Objects.equals(getPhotoUrls(), petModel.getPhotoUrls()) &&
                 Objects.equals(getName(), petModel.getName()) &&
+                Objects.equals(getId(), petModel.getId()) &&
                 Objects.equals(getCategory(), petModel.getCategory()) &&
                 Objects.equals(getTags(), petModel.getTags()) &&
                 Objects.equals(getStatus(), petModel.getStatus());

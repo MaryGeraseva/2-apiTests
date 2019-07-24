@@ -1,41 +1,49 @@
 package petStore.сontrollers;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import common.response.PetStoreResponse;
+import petStore.responses.PetStoreResponse;
 import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import petStore.models.petModel.PetModel;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
 public class PetController extends AbstractController {
 
     public PetController() {
-        RestAssured.requestSpecification = new RequestSpecBuilder()
+        RestAssured.requestSpecification = AbstractController.requestSpecBuilder
                 .setBasePath("/pet")
                 .build();
     }
 
-    public PetModel addPet(PetModel pet) {
+    public Response addPet(PetModel pet) {
+        log.info(String.format("make POST request \n%s", pet.toString()));
         return given()
                     .body(pet)
                 .when()
-                    .post().as(PetModel.class);
+                    .post();
     }
 
-    public JsonNode addPet(JsonNode pet) {
+    public Response addPet(JsonNode pet) {
         return given()
                     .body(pet)
                 .when()
-                    .post().as(JsonNode.class);
+                    .post();
     }
+
+//    public PetModel addPet(PetModel pet) {
+//        return given()
+//                    .body(pet)
+//                .when()
+//                    .post().as(PetModel.class);
+//    }
+
+//    public JsonNode addPet(JsonNode pet) {
+//        return given()
+//                    .body(pet)
+//                .when()
+//                    .post().as(JsonNode.class);
+//    }
 
     public PetModel updatePet(PetModel pet) {
         return given()
@@ -44,16 +52,16 @@ public class PetController extends AbstractController {
                     .put().as(PetModel.class);
     }
 
-    public void deletePet(String id) {
+    public void deletePet(long id) {
         given()
         .when()
-                .delete(id);
+                .delete(String.valueOf(id));
     }
 
-    public Object getPetById(String id) {
+    public Object getPetById(long id) {
         Response response = given()
                             .when()
-                                .get(id);
+                                .get(String.valueOf(id));
         response.print();
         if (response.statusCode() == 200) {
             return response.as(PetModel.class);
@@ -62,25 +70,4 @@ public class PetController extends AbstractController {
         }
     }
 
-
-    public List<PetModel> getPetsByStatus(String statuses) {
-        List<PetModel> petlist = new ArrayList<>();
-        Response response =
-                given()
-                    .spec(new RequestSpecBuilder().setBasePath("/pet/findByStatus").build())
-                    .formParam("status", statuses)
-                .when()
-                    .get();
-        ObjectMapper mapper = new ObjectMapper();
-        String s = response.body().asString();
-        try {
-            petlist = mapper.readValue(s, new TypeReference<List<PetModel>>(){});
-//            for(PetModel pet : petlist) {
-//                System.out.println(pet);
-//            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return petlist;
-    }
 }
