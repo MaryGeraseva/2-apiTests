@@ -1,5 +1,7 @@
 package petStore.assertions;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.google.gson.JsonObject;
 import common.reporting.LogInstance;
 import petStore.responses.PetStoreResponse;
 import io.qameta.allure.Step;
@@ -21,8 +23,8 @@ public class PetAssertions {
     }
 
     @Step("check responses status code")
-    public void assertResponseBody(Response response, PetModel expectedPet) {
-        PetModel actualPet = response.as(PetModel.class);
+    public void assertResponseBody(Response response, JsonNode expectedPet) {
+        JsonNode actualPet = response.as(JsonNode.class);
         Assertions.assertEquals(expectedPet, actualPet, "didn't get expected result");
         log.info(String.format("got responses %s", actualPet.toString()));
     }

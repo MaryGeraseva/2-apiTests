@@ -18,17 +18,17 @@ public class DemoTest extends BaseTest {
     public void demoTest() {
 
 //        PetModel pet = new PetBuilder().withRequiredFields(44l, new Category(), "test").build();
-        JsonNode pet = new FakePetBuilder().withRequiredFields("dddd", "cat", "test").build();
+//        JsonNode pet = new FakePetBuilder().withRequiredFields("dddd", "cat", "test").build();
 
 //        PetModel pet1 = new PetModel(new ArrayList<>(), "generatedString", 6880758l, null, new ArrayList<>(), "test22");
 //        PetModel pet2 = new PetModel(new ArrayList<>(), "generatedString", 6880758l, null, new ArrayList<>(), "test22");
 //        PetModel pet3 = new PetModel(new ArrayList<>(), "buba3", 3, null, new ArrayList<>(), PetStatus.AVAILABLE.name().toLowerCase());
 
-        PetController controller = new PetController();
-        PetAssertions assertions = new PetAssertions();
-
-       Response response = controller.addPet(pet);
-       assertions.assertStatusCode(response, 200);
+//        PetController controller = new PetController();
+//        PetAssertions assertions = new PetAssertions();
+//
+//       Response response = controller.addPet(pet);
+//       assertions.assertStatusCode(response, 200);
 //       PetAssertions.assertStatusCode(responses, 200);
 //        assertions.assertStatusCode405(responses);
 //        System.out.println(responses);
@@ -82,6 +82,14 @@ public class DemoTest extends BaseTest {
 //        storeController.getOrderById("33");
 //        storeController.deleteOrder("33");
 //        storeController.getOrderById("33");
+
+        FakePetBuilder builder = new FakePetBuilder();
+        JsonNode pet = builder.withRequiredFields(16, 22, "cat", "sold").build();
+        System.out.println(pet);
+        PetController controller = new PetController();
+        Response response = controller.addPet(pet);
+        PetAssertions assertions = new PetAssertions();
+        assertions.assertResponseBody(response, pet);
 
 
 
