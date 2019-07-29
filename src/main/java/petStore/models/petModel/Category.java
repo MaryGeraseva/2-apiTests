@@ -2,10 +2,9 @@ package petStore.models.petModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.annotation.Generated;
+
 import java.util.Objects;
 
-@Generated("com.robohorse.robopojogenerator")
 public class Category {
 
     @JsonProperty("name")
@@ -69,7 +68,9 @@ public class Category {
         if (!(o instanceof Category)) return false;
         Category category = (Category) o;
         return Objects.equals(getName(), category.getName()) &&
-                Objects.equals(getId(), category.getId());
+               (Objects.equals(getId(), category.getId()) ||
+               (Objects.equals(getId(), null) &&
+                Objects.equals(category.getId(), "0")));
     }
 
     @Override

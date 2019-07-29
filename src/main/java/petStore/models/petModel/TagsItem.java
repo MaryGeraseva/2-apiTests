@@ -2,16 +2,15 @@ package petStore.models.petModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.annotation.Generated;
 import java.util.Objects;
 
-@Generated("com.robohorse.robopojogenerator")
+
 public class TagsItem {
 
     public TagsItem() {
     }
 
-    public TagsItem(String name, long id) {
+    public TagsItem(String name, String id) {
         this.name = name;
         this.id = id;
     }
@@ -20,7 +19,7 @@ public class TagsItem {
     private String name;
 
     @JsonProperty("id")
-    private long id;
+    private String id;
 
     public void setName(String name) {
         this.name = name;
@@ -30,11 +29,11 @@ public class TagsItem {
         return name;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 

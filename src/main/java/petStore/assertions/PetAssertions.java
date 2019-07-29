@@ -1,7 +1,8 @@
 package petStore.assertions;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import common.reporting.LogInstance;
 import petStore.responses.PetStoreResponse;
 import io.qameta.allure.Step;
@@ -22,9 +23,17 @@ public class PetAssertions {
         log.info(String.format("got status code %s", actualCode));
     }
 
-    @Step("check responses status code")
-    public void assertResponseBody(Response response, JsonNode expectedPet) {
-        JsonNode actualPet = response.as(JsonNode.class);
+    @Step("check responses body")
+    public void assertResponseBody(Response response, JsonNode requestPet) {
+        PetModel actualPet = response.as(PetModel.class);
+        PetModel expectedPet = null;
+        try {
+            expectedPet = new ObjectMapper().treeToValue(requestPet, PetModel.class);
+
+        } catch (JsonProcessingException e) {
+            log.error("conversion error from JsonNode to PetModel");
+            e.printStackTrace();
+        }
         Assertions.assertEquals(expectedPet, actualPet, "didn't get expected result");
         log.info(String.format("got responses %s", actualPet.toString()));
     }

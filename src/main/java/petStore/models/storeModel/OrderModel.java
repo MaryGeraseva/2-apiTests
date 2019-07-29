@@ -2,10 +2,10 @@ package petStore.models.storeModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.annotation.Generated;
+
 import java.util.Objects;
 
-@Generated("com.robohorse.robopojogenerator")
+
 public class OrderModel {
 
     @JsonProperty("petId")

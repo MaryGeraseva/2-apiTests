@@ -5,9 +5,6 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.annotation.Generated;
-
-@Generated("com.robohorse.robopojogenerator")
 public class PetModel {
 
     @JsonProperty("photoUrls")
@@ -15,9 +12,6 @@ public class PetModel {
 
     @JsonProperty("name")
     private String name;
-
-//    @JsonProperty("id")
-//    private long id;
 
     @JsonProperty("id")
     private String id;
@@ -33,26 +27,12 @@ public class PetModel {
 
     public PetModel() {};
 
-//    public PetModel(long id, Category category, String status) {
-//        this.id = id;
-//        this.category = category;
-//        this.status = status;
-//    }
-
     public PetModel(String id, Category category, String status) {
         this.id = id;
         this.category = category;
         this.status = status;
     }
 
-//    public PetModel(List<String> photoUrls, String name, long id, Category category, List<TagsItem> tags, String status) {
-//        this.photoUrls = photoUrls;
-//        this.name = name;
-//        this.id = id;
-//        this.category = category;
-//        this.tags = tags;
-//        this.status = status;
-//    }
     public PetModel(List<String> photoUrls, String name, String id, Category category, List<TagsItem> tags, String status) {
         this.photoUrls = photoUrls;
         this.name = name;
@@ -78,13 +58,6 @@ public class PetModel {
         return name;
     }
 
-//    public void setId(long id) {
-//        this.id = id;
-//    }
-//
-//    public long getId() {
-//        return id;
-//    }
     public void setId(String id) {
         this.id = id;
     }

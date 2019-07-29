@@ -1,15 +1,8 @@
 package rest.petStoreTests;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import common.BaseTest;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import petStore.assertions.PetAssertions;
-import petStore.models.builders.FakePetBuilder;
-import petStore.models.builders.PetBuilder;
-import petStore.models.petModel.Category;
-import petStore.models.petModel.PetModel;
-import petStore.сontrollers.PetController;
+import petStore.models.petModel.PetStatus;
 
 public class DemoTest extends BaseTest {
 
@@ -18,7 +11,7 @@ public class DemoTest extends BaseTest {
     public void demoTest() {
 
 //        PetModel pet = new PetBuilder().withRequiredFields(44l, new Category(), "test").build();
-//        JsonNode pet = new FakePetBuilder().withRequiredFields("dddd", "cat", "test").build();
+//        JsonNode pet = new PetBuilderJackson().withRequiredFields("dddd", "cat", "test").build();
 
 //        PetModel pet1 = new PetModel(new ArrayList<>(), "generatedString", 6880758l, null, new ArrayList<>(), "test22");
 //        PetModel pet2 = new PetModel(new ArrayList<>(), "generatedString", 6880758l, null, new ArrayList<>(), "test22");
@@ -71,7 +64,7 @@ public class DemoTest extends BaseTest {
 //
 //        OrderModel order = new OrderModel(6880758l, 23, 3l, "2019-23-11", false, "доставка");
 //        OrderModel order = new OrderBuilder().withRequiredFields(23l, 14l, 1, OrderStatus.APPROVED.name().toLowerCase(), true).build();
-//        JsonNode fakeOrder = new FakeOrderBuilder().withRequiredFields("33", "33", "54", "333", "true").build();
+//        JsonNode fakeOrder = new OrderBuilderJackson().withRequiredFields("33", "33", "54", "333", "true").build();
 //        StoreController storeController = new StoreController();
 //        OrderModel responses = storeController.makeOrder(order);
 //        System.out.println(responses);
@@ -82,14 +75,14 @@ public class DemoTest extends BaseTest {
 //        storeController.getOrderById("33");
 //        storeController.deleteOrder("33");
 //        storeController.getOrderById("33");
-
-        FakePetBuilder builder = new FakePetBuilder();
-        JsonNode pet = builder.withRequiredFields(16, 22, "cat", "sold").build();
-        System.out.println(pet);
-        PetController controller = new PetController();
-        Response response = controller.addPet(pet);
-        PetAssertions assertions = new PetAssertions();
-        assertions.assertResponseBody(response, pet);
+//
+//        PetBuilderJackson builder = new PetBuilderJackson();
+//        JsonNode pet = builder.withRequiredFields(16, 22, "cat", "sold").build();
+//        System.out.println(pet);
+//        PetController controller = new PetController();
+//        Response response = controller.addPet(pet);
+//        PetAssertions assertions = new PetAssertions();
+//        assertions.assertResponseBody(response, pet);
 
 
 

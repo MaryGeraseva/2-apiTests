@@ -25,25 +25,12 @@ public class PetController extends AbstractController {
     }
 
     public Response addPet(JsonNode pet) {
+        log.info(String.format("make POST request \n%s", pet.toString()));
         return given()
                     .body(pet)
                 .when()
                     .post();
     }
-
-//    public PetModel addPet(PetModel pet) {
-//        return given()
-//                    .body(pet)
-//                .when()
-//                    .post().as(PetModel.class);
-//    }
-
-//    public JsonNode addPet(JsonNode pet) {
-//        return given()
-//                    .body(pet)
-//                .when()
-//                    .post().as(JsonNode.class);
-//    }
 
     public PetModel updatePet(PetModel pet) {
         return given()

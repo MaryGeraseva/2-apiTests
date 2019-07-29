@@ -10,21 +10,6 @@ public class PetBuilder {
 
     PetModel pet = new PetModel();
 
-//    public PetBuilder withRequiredFields(Long id, Category category, String status) {
-//        pet.setId(id);
-//        pet.setCategory(category);
-//        pet.setStatus(status);
-//        return this;
-//    }
-//
-//    public PetBuilder withAllFields(Long id, Category category, String status, List<String> photoUrls, List<TagsItem> tags, String name) {
-//        withRequiredFields(id, category, status);
-//        pet.setPhotoUrls(photoUrls);
-//        pet.setTags(tags);
-//        pet.setName(name);
-//        return this;
-//    }
-
     public PetBuilder withRequiredFields(String id, Category category, String status) {
         pet.setId(id);
         pet.setCategory(category);

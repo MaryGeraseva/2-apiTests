@@ -3,12 +3,12 @@ package petStore.models.builders;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class FakeOrderBuilder {
+public class OrderBuilderJackson {
 
     JsonNode fakeOrder;
     ObjectMapper mapper = new ObjectMapper();
 
-    public FakeOrderBuilder withRequiredFields(String id, String petId, String quantity, String status, String complete) {
+    public OrderBuilderJackson withRequiredFields(String id, String petId, String quantity, String status, String complete) {
         fakeOrder = mapper.createObjectNode()
                 .put("id", id)
                 .put("petId", petId)
@@ -18,7 +18,7 @@ public class FakeOrderBuilder {
         return this;
     }
 
-    public FakeOrderBuilder withAllFields(String id, String petId, String quantity, String status, String complete, String shipDate) {
+    public OrderBuilderJackson withAllFields(String id, String petId, String quantity, String status, String complete, String shipDate) {
         fakeOrder = mapper.createObjectNode()
                 .put("id", id)
                 .put("petId", petId)
