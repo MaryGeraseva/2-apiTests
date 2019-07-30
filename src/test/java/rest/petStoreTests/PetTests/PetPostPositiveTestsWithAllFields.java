@@ -3,6 +3,7 @@ package rest.petStoreTests.PetTests;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import common.BaseTest;
 import common.reporting.ReplaceCamelCase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetPostPositiveTestsWithAllFields {
+public class PetPostPositiveTestsWithAllFields extends BaseTest {
 
     private Response response;
     private PetController controller;

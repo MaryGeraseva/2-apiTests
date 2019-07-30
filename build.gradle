@@ -34,7 +34,6 @@ dependencies {
     compile group: 'io.rest-assured', name: 'rest-assured', version: '3.3.0'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
     compile group: 'io.rest-assured', name: 'json-schema-validator', version: '3.3.0'
-    compile group: 'org.assertj', name: 'assertj-core', version: '3.12.2'
     compile 'com.sun.xml.ws:jaxws-ri:2.3.2'
     testImplementation(
             'org.junit.jupiter:junit-jupiter-api:5.2.0'

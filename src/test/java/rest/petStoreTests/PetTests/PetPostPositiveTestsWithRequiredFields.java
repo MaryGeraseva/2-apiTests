@@ -1,6 +1,7 @@
 package rest.petStoreTests.PetTests;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import common.BaseTest;
 import common.reporting.ReplaceCamelCase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -15,7 +16,7 @@ import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetPostPositiveTestsWithRequiredFields{
+public class PetPostPositiveTestsWithRequiredFields extends BaseTest {
 
 
     private Response response;
