@@ -36,7 +36,10 @@ public class PetPostPositiveTestsWithRequiredFields extends BaseTest {
         JsonNode pet = new PetBuilderJackson().withRequiredFields(petId, categoryId, categoryName, petStatus).build();
         response = controller.addPet(pet);
 
-        assertions.assertStatusCode(response, 200);
+        assertions.assertStatusCode(response, StatusCodes.CODE200.getCode());
+        assertions.assertResponseBody(response, pet);
+
+        response = controller.getResponseById(petId);
         assertions.assertResponseBody(response, pet);
     }
 
@@ -44,7 +47,7 @@ public class PetPostPositiveTestsWithRequiredFields extends BaseTest {
     @MethodSource("rest.petStoreTests.PetTests.PetTestsDataProvider#requiredFieldsStatus405")
     @Step("Pet endpoint POST positive test with required fields and headers started")
     @Description(value = "test checks POST request with headers and required fields " +
-                         " with data invalid, expected response status code 405")
+                         " with invalid data, expected response status code 405")
     public void PetPostPositiveTestsWithRequiredFields405(int testId, String petId, String categoryId,
                                                           String categoryName, String petStatus) {
         controller = new PetController();
@@ -53,7 +56,7 @@ public class PetPostPositiveTestsWithRequiredFields extends BaseTest {
         JsonNode pet = new PetBuilderJackson().withRequiredFields(petId, categoryId, categoryName, petStatus).build();
         response = controller.addPet(pet);
 
-        assertions.assertStatusCode(response, 500);
-        assertions.assertResponseBody(response, new PetStoreResponse(StatusCodes.CODE500));
+        assertions.assertStatusCode(response, StatusCodes.CODE405.getCode());
+        assertions.assertResponseBody(response, new PetStoreResponse(StatusCodes.CODE405));
     }
 }
