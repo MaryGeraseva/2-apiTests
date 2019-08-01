@@ -6,4 +6,8 @@ public enum PetStatus {
     public String nameLowerCase(){
         return name().toLowerCase();
     }
+
+    public static PetStatus getRandom() {
+        return values()[(int) (Math.random() * values().length)];
+    }
 }
