@@ -1,6 +1,6 @@
 package common.reporting;
 
-import common.reporting.LogInstance;
+
 import io.qameta.allure.Attachment;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.extension.ExtensionContext;

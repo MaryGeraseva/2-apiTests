@@ -22,9 +22,9 @@ public class GetNegativeTests extends BaseTest {
 
     @ParameterizedTest(name = "Pet endpoint GET positive test #{0}")
     @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#invalidId")
-    @Step("Pet endpoint GET positive test started ")
     @Description(value = "test checks GET request with invalid id, " +
             "expected response status code 405 and Invalid ID supplied")
+    @Step("Pet endpoint GET positive test started ")
     public void PetPutInvalidId405(int testId, String id) {
         controller = new PetController();
         assertions = new PetAssertions();
