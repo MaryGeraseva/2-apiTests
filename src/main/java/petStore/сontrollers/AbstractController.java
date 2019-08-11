@@ -1,6 +1,7 @@
 package petStore.сontrollers;
 
 import common.reporting.LogInstance;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -20,7 +21,7 @@ public abstract class AbstractController {
                 .setContentType(ContentType.JSON)
                 .addHeader(PetStoreHeaders.KEY.getHeaderName(), PetStoreHeaders.KEY.getHeaderValue())
                 .addHeader(PetStoreHeaders.ACCEPT.getHeaderName(), PetStoreHeaders.ACCEPT.getHeaderValue())
-                .log(LogDetail.ALL);
+                .log(LogDetail.ALL).addFilter(new AllureRestAssured());
 
         RestAssured.defaultParser = Parser.JSON;
         //RestAssured.proxy("localhost" , 8888);
