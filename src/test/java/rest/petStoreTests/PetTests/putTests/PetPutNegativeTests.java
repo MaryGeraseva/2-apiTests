@@ -22,6 +22,7 @@ public class PetPutNegativeTests extends BaseTest {
         PetAssertions assertions = new PetAssertions();
 
         Response response = controller.updatePet(json);
+        assertions.assertStatusCode(response,  StatusCodes.CODE405_PUT.getCode());
         assertions.assertResponseBody(response, StatusCodes.CODE405_PUT);
     }
 }
