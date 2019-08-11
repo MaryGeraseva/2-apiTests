@@ -10,20 +10,12 @@ public class Category {
     @JsonProperty("name")
     private String name;
 
-//    @JsonProperty("id")
-//    private long id;
-
     @JsonProperty("id")
     private String id;
-
 
     public Category() {
     }
 
-//    public Category(long id, String name) {
-//        this.id = id;
-//        this.name = name;
-//    }
     public Category(String id, String name) {
         this.id = id;
         this.name = name;
@@ -37,14 +29,6 @@ public class Category {
         return name;
     }
 
-//    public void setId(long id) {
-//        this.id = id;
-//    }
-//
-//    public long getId() {
-//        return id;
-//    }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -55,11 +39,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return
-                "Category{" +
-                        "name = '" + name + '\'' +
-                        ",id = '" + id + '\'' +
-                        "}";
+        return String.format("{\"id\":\"%s\",\"name\":\"%s\"}", getId(), getName());
     }
 
     @Override

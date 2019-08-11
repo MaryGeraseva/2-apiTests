@@ -1,8 +1,9 @@
 package rest.petStoreTests;
 
 import common.BaseTest;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
-import petStore.models.petModel.PetStatus;
+import petStore.models.enums.PetStatuses;
 
 public class DemoTest extends BaseTest {
 
@@ -85,6 +86,8 @@ public class DemoTest extends BaseTest {
 //        assertions.assertResponseBody(response, pet);
 
 
+//        System.out.println(RandomStringUtils.random((6), "1234567890"));
+        System.out.println(PetStatuses.getNewStatus("sold"));
 
 
 

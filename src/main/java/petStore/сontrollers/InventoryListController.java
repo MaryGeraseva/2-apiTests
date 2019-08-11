@@ -9,7 +9,7 @@ public class InventoryListController {
 
     public InventoryListController() {
         RestAssured.requestSpecification = AbstractController.requestSpecBuilder
-                .setBasePath("/store/inventory")
+                .setBasePath(PetStoreEndpoints.STORE_ALL_INVENTORY.getPath())
                 .build();
     }
 

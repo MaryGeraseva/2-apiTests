@@ -92,15 +92,16 @@ public class PetModel {
 
     @Override
     public String toString() {
-        return
-                "PetModel{" +
-                        "photoUrls = '" + photoUrls + '\'' +
-                        ",name = '" + name + '\'' +
-                        ",id = '" + id + '\'' +
-                        ",category = '" + category + '\'' +
-                        ",tags = '" + tags + '\'' +
-                        ",status = '" + status + '\'' +
-                        "}";
+        return String.format(
+                "{\"id\":\"%s\"," +
+                 "\"category\":%s," +
+                 "\"name\":\"%s\"," +
+                 "\"photoUrls\":%s," +
+                 "\"tags\":%s," +
+                 "\"status\":\"%s\"}",
+                 getId(), getCategory().toString(), getName(),
+                 getPhotoUrls().toString(), getTags().toString(), getStatus()
+        );
     }
 
     @Override

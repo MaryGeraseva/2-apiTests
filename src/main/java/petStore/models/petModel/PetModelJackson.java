@@ -3,6 +3,7 @@ package petStore.models.petModel;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import petStore.models.enums.PetFields;
 
 import java.util.List;
 import java.util.Map;
@@ -15,42 +16,51 @@ public class PetModelJackson {
 
     private JsonNodeFactory factory = new JsonNodeFactory(false);
 
-    public ObjectNode setCategory(String categoryId, String categoryName) {
-        getCategory();
-        category.put("id", categoryId)
-                .put("name", categoryName);
+    public ObjectNode getCategory(String categoryId, String categoryName) {
+        createCategory();
+        category.put(PetFields.ID.getValue(), categoryId)
+                .put(PetFields.NAME.getValue(), categoryName);
         return category;
     }
 
-    public void getCategory() {
+    public void createCategory() {
         category = factory.objectNode();
     }
 
-    public ArrayNode setPhotoUrls(List<String> urls) {
-        getPhotoUrls();
+    public ArrayNode getPhotoUrls(List<String> urls) {
+        createPhotoUrls();
         for(String url : urls) {
             photoUrls.add(url);
         }
         return photoUrls;
     }
 
-    public ArrayNode getPhotoUrls() {
+    public ArrayNode createPhotoUrls() {
         photoUrls = factory.arrayNode();
         return photoUrls;
     }
 
-    public ArrayNode setTags(Map<String, String> tagItems) {
-        getTags();
+    public ArrayNode getTags(Map<String, String> tagItems) {
+        createTags();
         for(Map.Entry<String, String> entry : tagItems.entrySet()) {
             ObjectNode tagItem = factory.objectNode();
-            tagItem.put("id", entry.getKey());
-            tagItem.put("name", entry.getValue());
+            tagItem.put(PetFields.ID.getValue(), entry.getKey());
+            tagItem.put(PetFields.NAME.getValue(), entry.getValue());
             tags.add(tagItem);
         }
         return tags;
     }
 
-    public ArrayNode getTags() {
+    public ArrayNode getTags(String id, String name) {
+        createTags();
+        ObjectNode tagItem = factory.objectNode();
+        tagItem.put(PetFields.ID.getValue(), id);
+        tagItem.put(PetFields.NAME.getValue(), name);
+        tags.add(tagItem);
+        return tags;
+    }
+
+    public ArrayNode createTags() {
         tags = factory.arrayNode();
         return tags;
     }

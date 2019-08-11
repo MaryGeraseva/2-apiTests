@@ -1,10 +1,10 @@
 package petStore.сontrollers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import petStore.responses.PetStoreResponse;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import petStore.models.petModel.PetModel;
+import petStore.responses.PetStoreResponse;
 
 import static io.restassured.RestAssured.given;
 
@@ -12,16 +12,8 @@ public class PetController extends AbstractController {
 
     public PetController() {
         RestAssured.requestSpecification = AbstractController.requestSpecBuilder
-                .setBasePath("/pet")
+                .setBasePath(PetStoreEndpoints.PET.getPath())
                 .build();
-    }
-
-    public Response addPet(PetModel pet) {
-        log.info(String.format("make POST request \n%s", pet.toString()));
-        return given()
-                    .body(pet)
-                .when()
-                    .post();
     }
 
     public Response addPet(JsonNode pet) {
@@ -32,29 +24,52 @@ public class PetController extends AbstractController {
                     .post();
     }
 
-    public PetModel updatePet(PetModel pet) {
+    public Response addPet(String json) {
+        log.info(String.format("make POST request \n%s", json));
+        return given()
+                    .body(json)
+                .when()
+                    .post();
+    }
+
+    public Response updatePet(JsonNode pet) {
+        log.info(String.format("make PUT request \n%s", pet.toString()));
         return given()
                     .body(pet)
                 .when()
-                    .put().as(PetModel.class);
+                    .put();
     }
 
-    public void deletePet(long id) {
+    public Response updatePet(String json) {
+        log.info(String.format("make PUT request \n%s", json));
+        return given()
+                    .body(json)
+                .when()
+                    .put();
+    }
+
+    public void deletePet(String id) {
         given()
         .when()
-                .delete(String.valueOf(id));
+                .delete(id);
     }
 
-    public Object getPetById(long id) {
+    public Object getPetById(String id) {
         Response response = given()
                             .when()
-                                .get(String.valueOf(id));
-        response.print();
+                                .get(id);
         if (response.statusCode() == 200) {
             return response.as(PetModel.class);
         } else {
             return response.as(PetStoreResponse.class);
         }
     }
+
+    public Response getResponseById(String id) {
+        return given()
+                .when()
+                    .get(id);
+    }
+
 
 }

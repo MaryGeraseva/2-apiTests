@@ -39,11 +39,7 @@ public class TagsItem {
 
     @Override
     public String toString() {
-        return
-                "TagsItem{" +
-                        "name = '" + name + '\'' +
-                        ",id = '" + id + '\'' +
-                        "}";
+        return String.format("{\"id\":\"%s\",\"name\":\"%s\"}", getId(), getName());
     }
 
     @Override

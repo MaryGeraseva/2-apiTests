@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests;
+package rest.petStoreTests.PetTests.postTests;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import common.BaseTest;
@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import petStore.assertions.PetAssertions;
 import petStore.models.builders.PetBuilderJackson;
 import petStore.models.petModel.PetModelJackson;
-import petStore.models.petModel.PetStatus;
+import petStore.models.enums.PetStatuses;
 import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
@@ -35,7 +35,7 @@ public class PetPostCaseSensitiveTest extends BaseTest {
         assertions = new PetAssertions();
 
         ObjectNode pet = new PetBuilderJackson().withAllFields().build();
-        pet.put("status", PetStatus.getRandom().name());
+        pet.put(field, PetStatuses.getRandom().name());
         response = controller.addPet(pet);
 
         assertions.assertStatusCode(response, StatusCodes.CODE200.getCode());
@@ -58,10 +58,10 @@ public class PetPostCaseSensitiveTest extends BaseTest {
         ObjectNode pet = new PetBuilderJackson().withAllFields().build();
 
         PetModelJackson petModelJackson = new PetModelJackson();
-        ObjectNode category = petModelJackson.setCategory(
+        ObjectNode category = petModelJackson.getCategory(
                 RandomStringUtils.randomNumeric(3),
                 RandomStringUtils.randomAlphabetic(5).toUpperCase());
-        pet.put("category", category);
+        pet.set(field, category);
         response = controller.addPet(pet);
 
         assertions.assertStatusCode(response, StatusCodes.CODE200.getCode());

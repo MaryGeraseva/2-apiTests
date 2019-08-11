@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests;
+package rest.petStoreTests.PetTests.postTests;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -13,7 +13,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import petStore.assertions.PetAssertions;
 import petStore.models.builders.PetBuilderJackson;
-import petStore.responses.PetStoreResponse;
 import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
@@ -21,14 +20,14 @@ import java.util.List;
 import java.util.Map;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetPostPositiveTestsWithAllFields extends BaseTest {
+public class PetPostTestsWithAllFields extends BaseTest {
 
     private Response response;
     private PetController controller;
     private PetAssertions assertions;
 
     @ParameterizedTest(name = "Pet endpoint POST positive test with all fields #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.PetTestsDataProvider#pairZeroValue")
+    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#postPairZeroValue")
     @Step("Pet endpoint POST positive test with all fields and headers started")
     @Description(value = "test checks POST request with headers and all fields which have pair zero value")
     public void PetPostPositivePairZeroTests(int testId, String petId, ObjectNode category, String name,
@@ -48,7 +47,7 @@ public class PetPostPositiveTestsWithAllFields extends BaseTest {
     }
 
     @ParameterizedTest(name = "Pet endpoint POST positive test with all fields #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.PetTestsDataProvider#allFieldsStatus200")
+    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#postAllFieldsStatus200")
     @Step("Pet endpoint POST positive test with all fields and headers started")
     @Description(value = "test checks POST request with headers and all fields which have " +
             "valid data, expected response status code 200 and well-formed json with test data")
@@ -66,7 +65,7 @@ public class PetPostPositiveTestsWithAllFields extends BaseTest {
     }
 
     @ParameterizedTest(name = "Pet endpoint POST positive test with all fields #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.PetTestsDataProvider#allFieldsStatus405")
+    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#postAllFieldsStatus405")
     @Step("Pet endpoint POST positive test with all fields and headers started")
     @Description(value = "test checks POST request with headers and all fields " +
             " with invalid data, expected response status code 405")
@@ -79,7 +78,7 @@ public class PetPostPositiveTestsWithAllFields extends BaseTest {
                 .withAllFields(petId, categoryId, categoryName, name, photoUrls, items, petStatus).build();
         response = controller.addPet(pet);
 
-        assertions.assertStatusCode(response, StatusCodes.CODE405.getCode());
-        assertions.assertResponseBody(response, new PetStoreResponse(StatusCodes.CODE405));
+        assertions.assertStatusCode(response, StatusCodes.CODE405_POST.getCode());
+        assertions.assertResponseBody(response, StatusCodes.CODE405_POST);
     }
 }

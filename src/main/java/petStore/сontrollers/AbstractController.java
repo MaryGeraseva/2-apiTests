@@ -16,14 +16,14 @@ public abstract class AbstractController {
 
     static {
         requestSpecBuilder = new RequestSpecBuilder()
-                .setBaseUri("https://petstore.swagger.io/v2")
+                .setBaseUri("http://petstore.swagger.io/v2")
                 .setContentType(ContentType.JSON)
-                .addHeader("api_key", "maryTest062019")
-                .addHeader("Accept", ContentType.JSON.toString())
+                .addHeader(PetStoreHeaders.KEY.getHeaderName(), PetStoreHeaders.KEY.getHeaderValue())
+                .addHeader(PetStoreHeaders.ACCEPT.getHeaderName(), PetStoreHeaders.ACCEPT.getHeaderValue())
                 .log(LogDetail.ALL);
 
         RestAssured.defaultParser = Parser.JSON;
-//        RestAssured.proxy("localhost" , 8888);
+        RestAssured.proxy("localhost" , 8888);
 
 //        RestAssured.responseSpecification = new ResponseSpecBuilder().log(LogDetail.ALL).build();
     }

@@ -2,6 +2,7 @@ package rest.petStoreTests.PetTests.dataProviders;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import org.junit.jupiter.params.provider.Arguments;
+import petStore.models.enums.PetFields;
 import petStore.models.enums.PetStatuses;
 import petStore.responses.StatusCodes;
 
@@ -11,9 +12,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-public class PetPostDataProvider {
+public class PetDataProvider {
 
-    public static Stream<Arguments> requiredFieldsStatus200() {
+    public static Stream<Arguments> postRequiredFieldsStatus200() {
         return Stream.of(
                 arguments(1, "-9223372036854775808", "6", "dog", PetStatuses.AVAILABLE.nameLowerCase()),
                 arguments(2, "9223372036854775807", "26", "кот", PetStatuses.SOLD.nameLowerCase()),
@@ -28,7 +29,7 @@ public class PetPostDataProvider {
         );
     }
 
-    public static Stream<Arguments> requiredFieldsStatus405() {
+    public static Stream<Arguments> postRequiredFieldsStatus405() {
         return Stream.of(
                 arguments(1, "-9223372036854775809","16", "dog", PetStatuses.PENDING.nameLowerCase()),
                 arguments(2, "9223372036854775808", "346", "cat", PetStatuses.AVAILABLE.nameLowerCase()),
@@ -47,7 +48,7 @@ public class PetPostDataProvider {
         );
     }
 
-    public static Stream<Arguments> pairZeroValue() {
+    public static Stream<Arguments> postPairZeroValue() {
         JsonNodeFactory factory = new JsonNodeFactory(false);
 
         return Stream.of(
@@ -58,7 +59,7 @@ public class PetPostDataProvider {
         );
     }
 
-    public static Stream<Arguments> allFieldsStatus200() {
+    public static Stream<Arguments> postAllFieldsStatus200() {
         return Stream.of(
                 arguments(1, "4552", "2336", "cat", "tom", Arrays.asList(),
                         Map.of("2346", "hot","2347", "sale"), PetStatuses.AVAILABLE.nameLowerCase()),
@@ -83,7 +84,7 @@ public class PetPostDataProvider {
         );
     }
 
-    public static Stream<Arguments> allFieldsStatus405() {
+    public static Stream<Arguments> postAllFieldsStatus405() {
         return Stream.of(
                 arguments(1, "4555", "2339", "dog", "tom", Arrays.asList("https://photo1.jpg", "https://photo2.jpg"),
                         Map.of(" -9223372036854775809",  "vip"), PetStatuses.AVAILABLE.nameLowerCase()),
@@ -94,7 +95,7 @@ public class PetPostDataProvider {
         );
     }
 
-    public static Stream<Arguments> negativeTests() {
+    public static Stream<Arguments> negativeWithJsonData() {
         return Stream.of(
                 arguments(1, "{}"),
                 arguments(2, "{\n\"id\": 1234,\n" +
@@ -121,4 +122,33 @@ public class PetPostDataProvider {
                              "  \"tags\": [\n{\n\"id\": 23,\n\"name\": \"sale\"\n}\n]}")
         );
     }
+
+    public static Stream<Arguments> putPositive() {
+        return Stream.of(
+                arguments(1, PetFields.ID.getValue(), null),
+                arguments(2, PetFields.CATEGORY.getValue(), PetFields.ID.getValue()),
+                arguments(3, PetFields.CATEGORY.getValue(), PetFields.NAME.getValue()),
+                arguments(4, PetFields.NAME.getValue(), null),
+                arguments(5, PetFields.PHOTO_URLS.getValue(), null),
+                arguments(6, PetFields.TAGS.getValue(), PetFields.ID.getValue()),
+                arguments(7, PetFields.TAGS.getValue(), PetFields.NAME.getValue()),
+                arguments(8, PetFields.STATUS.getValue(), null),
+                arguments(9, null, null),
+                arguments(10, "all", "all")
+        );
+    }
+
+    public static Stream<Arguments> invalidId() {
+        return Stream.of(
+                arguments(1, "-9223372036854775809"),
+                arguments(2, "9223372036854775808"),
+                arguments(3, "0.4"),
+                arguments(4, "45,6"),
+                arguments(5, "0"),
+                arguments(6, "id"),
+                arguments(7, "/")
+        );
+    }
+
+
 }
