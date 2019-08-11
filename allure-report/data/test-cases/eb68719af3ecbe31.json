@@ -1,0 +1,52 @@
+{
+  "uid" : "eb68719af3ecbe31",
+  "name" : "Pet endpoint PUT positive test #6",
+  "fullName" : "rest.petStoreTests.PetTests.putTests.PetPutPositiveTests.PetPutPositiveTest200",
+  "historyId" : "b156284de62317ed33e6f6b9e0f2624b",
+  "time" : {
+    "start" : 1565548800867,
+    "stop" : 1565548801439,
+    "duration" : 572
+  },
+  "description" : "test checks PUT request with valid data, expected response status code 200 and well-formed json with test data",
+  "descriptionHtml" : "<p>test checks PUT request with valid data, expected response status code 200 and well-formed json with test data</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-M5OJQE6"
+  }, {
+    "name" : "thread",
+    "value" : "19036@DESKTOP-M5OJQE6.Test worker(14)"
+  }, {
+    "name" : "package",
+    "value" : "rest.petStoreTests.PetTests.putTests.PetPutPositiveTests"
+  }, {
+    "name" : "testClass",
+    "value" : "rest.petStoreTests.PetTests.putTests.PetPutPositiveTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "PetPutPositiveTest200"
+  }, {
+    "name" : "suite",
+    "value" : "rest.petStoreTests.PetTests.putTests.PetPutPositiveTests"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "eb68719af3ecbe31.json",
+  "parameterValues" : [ ]
+}

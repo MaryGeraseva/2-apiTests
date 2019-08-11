@@ -1,0 +1,52 @@
+{
+  "uid" : "24125f904c2eaedf",
+  "name" : "Pet endpoint POST positive test with required fields #2",
+  "fullName" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithRequiredFields.PetPostPositiveTestsWithRequiredFields200",
+  "historyId" : "8c2bd24858be55ac43ab19e4f312eecf",
+  "time" : {
+    "start" : 1565548782378,
+    "stop" : 1565548782954,
+    "duration" : 576
+  },
+  "description" : "test checks POST request with headers and required fields which have valid data, expected response status code 200 and well-formed json with test data",
+  "descriptionHtml" : "<p>test checks POST request with headers and required fields which have valid data, expected response status code 200 and well-formed json with test data</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-M5OJQE6"
+  }, {
+    "name" : "thread",
+    "value" : "19036@DESKTOP-M5OJQE6.Test worker(14)"
+  }, {
+    "name" : "package",
+    "value" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithRequiredFields"
+  }, {
+    "name" : "testClass",
+    "value" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithRequiredFields"
+  }, {
+    "name" : "testMethod",
+    "value" : "PetPostPositiveTestsWithRequiredFields200"
+  }, {
+    "name" : "suite",
+    "value" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithRequiredFields"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "24125f904c2eaedf.json",
+  "parameterValues" : [ ]
+}

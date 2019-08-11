@@ -1,0 +1,92 @@
+{
+  "total" : 8,
+  "items" : [ {
+    "uid" : "c6a0b235c69f77ef2567e2b8c9abd19d",
+    "name" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithRequiredFields",
+    "statistic" : {
+      "failed" : 15,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 9,
+      "unknown" : 0,
+      "total" : 24
+    }
+  }, {
+    "uid" : "f227a27ebd358cc2f6aa53800bc81dd1",
+    "name" : "rest.petStoreTests.PetTests.putTests.PetPutPositiveTests",
+    "statistic" : {
+      "failed" : 10,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 10,
+      "unknown" : 0,
+      "total" : 20
+    }
+  }, {
+    "uid" : "edaede75a592536332a6e3e929615e6f",
+    "name" : "rest.petStoreTests.PetTests.getTests.GetPositiveTests",
+    "statistic" : {
+      "failed" : 10,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 13
+    }
+  }, {
+    "uid" : "42605e3286ab59ad025d8c0312054de8",
+    "name" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithAllFields",
+    "statistic" : {
+      "failed" : 6,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 11,
+      "unknown" : 0,
+      "total" : 17
+    }
+  }, {
+    "uid" : "734788fb1b2cf9cccd2bff63dc8dadb8",
+    "name" : "rest.petStoreTests.PetTests.postTests.PetPostCaseSensitiveTest",
+    "statistic" : {
+      "failed" : 6,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 6
+    }
+  }, {
+    "uid" : "bd30724668a1ada0704044ebeee07ca6",
+    "name" : "rest.petStoreTests.PetTests.postTests.PetPostNegativeTests",
+    "statistic" : {
+      "failed" : 5,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 5
+    }
+  }, {
+    "uid" : "7c04eb53fc5654ccceadc9999dd98918",
+    "name" : "rest.petStoreTests.PetTests.putTests.PetPutNegativeTests",
+    "statistic" : {
+      "failed" : 5,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 5
+    }
+  }, {
+    "uid" : "64ef57628c82ec1de277c1cb046345eb",
+    "name" : "rest.petStoreTests.DemoTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  } ]
+}

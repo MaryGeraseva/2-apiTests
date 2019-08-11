@@ -23,7 +23,7 @@ public abstract class AbstractController {
                 .log(LogDetail.ALL);
 
         RestAssured.defaultParser = Parser.JSON;
-        RestAssured.proxy("localhost" , 8888);
+        //RestAssured.proxy("localhost" , 8888);
 
 //        RestAssured.responseSpecification = new ResponseSpecBuilder().log(LogDetail.ALL).build();
     }

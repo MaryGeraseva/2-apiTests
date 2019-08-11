@@ -1,0 +1,52 @@
+{
+  "uid" : "2f1209735f90e82b",
+  "name" : "Pet endpoint POST positive test with all fields #4",
+  "fullName" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithAllFields.PetPostPositiveTestsWithAllFields200",
+  "historyId" : "9b1f9c5b79eaa88ecd08e1a04c8edba8",
+  "time" : {
+    "start" : 1565548777209,
+    "stop" : 1565548777558,
+    "duration" : 349
+  },
+  "description" : "test checks POST request with headers and all fields which have valid data, expected response status code 200 and well-formed json with test data",
+  "descriptionHtml" : "<p>test checks POST request with headers and all fields which have valid data, expected response status code 200 and well-formed json with test data</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-M5OJQE6"
+  }, {
+    "name" : "thread",
+    "value" : "19036@DESKTOP-M5OJQE6.Test worker(14)"
+  }, {
+    "name" : "package",
+    "value" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithAllFields"
+  }, {
+    "name" : "testClass",
+    "value" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithAllFields"
+  }, {
+    "name" : "testMethod",
+    "value" : "PetPostPositiveTestsWithAllFields200"
+  }, {
+    "name" : "suite",
+    "value" : "rest.petStoreTests.PetTests.postTests.PetPostTestsWithAllFields"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2f1209735f90e82b.json",
+  "parameterValues" : [ ]
+}

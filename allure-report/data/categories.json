@@ -1,0 +1,830 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "Multiple Failures (2 failures)\r\n\tdidn't get expected result, actual status code is 404 ==> expected: <400> but was: <404>\r\n\tdidn't get expected result ==> expected: <\n{code = 400, type = error, message = Invalid ID supplied}> but was: <\n{code = 404, type = unknown, message = java.lang.NumberFormatException: For input string: \"-9223372036854775809\"}>",
+      "children" : [ {
+        "name" : "Pet endpoint GET positive test #1",
+        "uid" : "e66cc94e585dac20",
+        "parentUid" : "2da5325b264a17a53830d04313b4d877",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548762833,
+          "stop" : 1565548765537,
+          "duration" : 2704
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2da5325b264a17a53830d04313b4d877"
+    }, {
+      "name" : "Multiple Failures (2 failures)\r\n\tdidn't get expected result, actual status code is 404 ==> expected: <400> but was: <404>\r\n\tdidn't get expected result ==> expected: <\n{code = 400, type = error, message = Invalid ID supplied}> but was: <\n{code = 404, type = unknown, message = java.lang.NumberFormatException: For input string: \"9223372036854775808\"}>",
+      "children" : [ {
+        "name" : "Pet endpoint GET positive test #2",
+        "uid" : "dff775dd33f573c5",
+        "parentUid" : "e2fadb1b9b6a9b4680b41350fd97c3ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548765545,
+          "stop" : 1565548765904,
+          "duration" : 359
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e2fadb1b9b6a9b4680b41350fd97c3ff"
+    }, {
+      "name" : "Multiple Failures (2 failures)\r\n\tdidn't get expected result, actual status code is 404 ==> expected: <400> but was: <404>\r\n\tdidn't get expected result ==> expected: <\n{code = 400, type = error, message = Invalid ID supplied}> but was: <\n{code = 404, type = unknown, message = java.lang.NumberFormatException: For input string: \"0.4\"}>",
+      "children" : [ {
+        "name" : "Pet endpoint GET positive test #3",
+        "uid" : "1b4c1ad77ee01897",
+        "parentUid" : "e6aa4239f36c97396d49ecaed054f7dc",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548765929,
+          "stop" : 1565548766275,
+          "duration" : 346
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e6aa4239f36c97396d49ecaed054f7dc"
+    }, {
+      "name" : "Multiple Failures (2 failures)\r\n\tdidn't get expected result, actual status code is 404 ==> expected: <400> but was: <404>\r\n\tdidn't get expected result ==> expected: <\n{code = 400, type = error, message = Invalid ID supplied}> but was: <\n{code = 404, type = unknown, message = java.lang.NumberFormatException: For input string: \"45,6\"}>",
+      "children" : [ {
+        "name" : "Pet endpoint GET positive test #4",
+        "uid" : "40ebc5ef41f60d75",
+        "parentUid" : "46a9ca402adf8917e666d4a8c2d4acc2",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548766285,
+          "stop" : 1565548766658,
+          "duration" : 373
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "46a9ca402adf8917e666d4a8c2d4acc2"
+    }, {
+      "name" : "Multiple Failures (2 failures)\r\n\tdidn't get expected result, actual status code is 404 ==> expected: <400> but was: <404>\r\n\tdidn't get expected result ==> expected: <\n{code = 400, type = error, message = Invalid ID supplied}> but was: <\n{code = 1, type = error, message = Pet not found}>",
+      "children" : [ {
+        "name" : "Pet endpoint GET positive test #5",
+        "uid" : "ee6104a143e39d9c",
+        "parentUid" : "97e6d5ef4ab87401fa4a6839c20c08f3",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548766671,
+          "stop" : 1565548766972,
+          "duration" : 301
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "97e6d5ef4ab87401fa4a6839c20c08f3"
+    }, {
+      "name" : "Multiple Failures (2 failures)\r\n\tdidn't get expected result, actual status code is 404 ==> expected: <400> but was: <404>\r\n\tdidn't get expected result ==> expected: <\n{code = 400, type = error, message = Invalid ID supplied}> but was: <\n{code = 404, type = unknown, message = java.lang.NumberFormatException: For input string: \"id\"}>",
+      "children" : [ {
+        "name" : "Pet endpoint GET positive test #6",
+        "uid" : "a913e281d56ea82b",
+        "parentUid" : "55fc669b515c48dbbf6c654d2f3fd086",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548766982,
+          "stop" : 1565548767322,
+          "duration" : 340
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "55fc669b515c48dbbf6c654d2f3fd086"
+    }, {
+      "name" : "Multiple Failures (2 failures)\r\n\tdidn't get expected result, actual status code is 405 ==> expected: <400> but was: <405>\r\n\tdidn't get expected result ==> expected: <\n{code = 400, type = error, message = Invalid ID supplied}> but was: <\n{code = 405, type = unknown, message = null}>",
+      "children" : [ {
+        "name" : "Pet endpoint GET positive test #7",
+        "uid" : "1bea3baee743989a",
+        "parentUid" : "c3631deb9e760fcf5826d97a7ef1a16b",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548767328,
+          "stop" : 1565548767641,
+          "duration" : 313
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c3631deb9e760fcf5826d97a7ef1a16b"
+    }, {
+      "name" : "Multiple Failures (1 failure)\r\n\tdidn't get expected result ==> expected: <\n{code = 404, type = error, message = Pet not found}> but was: <\n{code = 1, type = error, message = Pet not found}>",
+      "children" : [ {
+        "name" : "Pet endpoint GET positive test #1",
+        "uid" : "3310f0d3a4e552c2",
+        "parentUid" : "00f48934c1a0a8d24a71dfd1e86ba35c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548767657,
+          "stop" : 1565548768760,
+          "duration" : 1103
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint GET positive test #2",
+        "uid" : "99acf9d51e2a7954",
+        "parentUid" : "00f48934c1a0a8d24a71dfd1e86ba35c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548768768,
+          "stop" : 1565548769655,
+          "duration" : 887
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint GET positive test #3",
+        "uid" : "c82f5ed6e43c483c",
+        "parentUid" : "00f48934c1a0a8d24a71dfd1e86ba35c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548769662,
+          "stop" : 1565548770877,
+          "duration" : 1215
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "00f48934c1a0a8d24a71dfd1e86ba35c"
+    }, {
+      "name" : "didn't get expected result ==> expected: <mvywm> but was: <MVYWM>",
+      "children" : [ {
+        "name" : "Pet endpoint category nested field name case sensitive test #1",
+        "uid" : "f828c76648ba9dac",
+        "parentUid" : "bd98341b1bb0aef7d9e8ba118de50c91",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548772765,
+          "stop" : 1565548773065,
+          "duration" : 300
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "bd98341b1bb0aef7d9e8ba118de50c91"
+    }, {
+      "name" : "didn't get expected result ==> expected: <xtcdg> but was: <XTCDG>",
+      "children" : [ {
+        "name" : "Pet endpoint category nested field name case sensitive test #2",
+        "uid" : "27a0e848574288b9",
+        "parentUid" : "db788f17d4a88db5a51bd170a4fdf195",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548773074,
+          "stop" : 1565548773383,
+          "duration" : 309
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "db788f17d4a88db5a51bd170a4fdf195"
+    }, {
+      "name" : "didn't get expected result ==> expected: <odvuw> but was: <ODVUW>",
+      "children" : [ {
+        "name" : "Pet endpoint category nested field name case sensitive test #3",
+        "uid" : "1344c38483046e0a",
+        "parentUid" : "81146c36361749d1eeaee05001e014f4",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548773460,
+          "stop" : 1565548773784,
+          "duration" : 324
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "81146c36361749d1eeaee05001e014f4"
+    }, {
+      "name" : "didn't get expected result ==> expected: <sold> but was: <SOLD>",
+      "children" : [ {
+        "name" : "Pet endpoint field status case sensitive test #1",
+        "uid" : "6f329288071cde5e",
+        "parentUid" : "13039a8fd380b081dfc80e9f8fe05940",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548773789,
+          "stop" : 1565548774077,
+          "duration" : 288
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint field status case sensitive test #2",
+        "uid" : "4c71049c2c3d124f",
+        "parentUid" : "13039a8fd380b081dfc80e9f8fe05940",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548774084,
+          "stop" : 1565548774377,
+          "duration" : 293
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint field status case sensitive test #3",
+        "uid" : "5ade51af13ccefd3",
+        "parentUid" : "13039a8fd380b081dfc80e9f8fe05940",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548774385,
+          "stop" : 1565548774693,
+          "duration" : 308
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "13039a8fd380b081dfc80e9f8fe05940"
+    }, {
+      "name" : "didn't get expected result, actual status code is 200 ==> expected: <405> but was: <200>",
+      "children" : [ {
+        "name" : "Pet endpoint POST negative test #1",
+        "uid" : "54ed290df21f95dd",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548774726,
+          "stop" : 1565548775013,
+          "duration" : 287
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #2",
+        "uid" : "acaf6aa574b92f12",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548775019,
+          "stop" : 1565548775311,
+          "duration" : 292
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #3",
+        "uid" : "cf1a1ab1d1c45d5e",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548775317,
+          "stop" : 1565548775613,
+          "duration" : 296
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #4",
+        "uid" : "a4c932d9927fe36c",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548775621,
+          "stop" : 1565548775965,
+          "duration" : 344
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #5",
+        "uid" : "34a8a013b2f8463b",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548775973,
+          "stop" : 1565548776267,
+          "duration" : 294
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with all fields #3",
+        "uid" : "ef362b06f8761e0b",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548781167,
+          "stop" : 1565548781467,
+          "duration" : 300
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #5",
+        "uid" : "95976b441b8ece9",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548788585,
+          "stop" : 1565548788876,
+          "duration" : 291
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #6",
+        "uid" : "e480f9c6f48f354e",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548788890,
+          "stop" : 1565548789196,
+          "duration" : 306
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #7",
+        "uid" : "8f714a4e2834673f",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548789202,
+          "stop" : 1565548789491,
+          "duration" : 289
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #1",
+        "uid" : "a7b4e6111578c59",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548791580,
+          "stop" : 1565548791870,
+          "duration" : 290
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #2",
+        "uid" : "e2d82cd96995bcca",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548791875,
+          "stop" : 1565548792180,
+          "duration" : 305
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #3",
+        "uid" : "add955484c7b94f4",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548792185,
+          "stop" : 1565548792483,
+          "duration" : 298
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #4",
+        "uid" : "b69314bd096d6065",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548792489,
+          "stop" : 1565548792776,
+          "duration" : 287
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST negative test #5",
+        "uid" : "50d39089bdba6f88",
+        "parentUid" : "85be1ab7c0430c487395b425e36037ff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548792782,
+          "stop" : 1565548793068,
+          "duration" : 286
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "85be1ab7c0430c487395b425e36037ff"
+    }, {
+      "name" : "didn't get expected result, actual status code is 500 ==> expected: <405> but was: <500>",
+      "children" : [ {
+        "name" : "Pet endpoint POST positive test with all fields #1",
+        "uid" : "7dc3d6bdb86dafc3",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548779526,
+          "stop" : 1565548779817,
+          "duration" : 291
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with all fields #2",
+        "uid" : "1b7ca696692a5952",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548779828,
+          "stop" : 1565548780155,
+          "duration" : 327
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with all fields #3",
+        "uid" : "d0f97ecfd1bc793e",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548780164,
+          "stop" : 1565548780491,
+          "duration" : 327
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #1",
+        "uid" : "40e00efd1ea20c77",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548787416,
+          "stop" : 1565548787709,
+          "duration" : 293
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #2",
+        "uid" : "ec10b9ea9f0e18ae",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548787716,
+          "stop" : 1565548787998,
+          "duration" : 282
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #3",
+        "uid" : "10b590d34a2912a7",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548788001,
+          "stop" : 1565548788283,
+          "duration" : 282
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #4",
+        "uid" : "18bfa62560fe519",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548788289,
+          "stop" : 1565548788579,
+          "duration" : 290
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #8",
+        "uid" : "875551a4e09a2867",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548789497,
+          "stop" : 1565548789791,
+          "duration" : 294
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #9",
+        "uid" : "56e773ac6fdecae8",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548789797,
+          "stop" : 1565548790094,
+          "duration" : 297
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #10",
+        "uid" : "692d73288ea39980",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548790100,
+          "stop" : 1565548790387,
+          "duration" : 287
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #11",
+        "uid" : "b7db07dd27512abd",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548790392,
+          "stop" : 1565548790679,
+          "duration" : 287
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #12",
+        "uid" : "626ba5c97153d335",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548790685,
+          "stop" : 1565548790977,
+          "duration" : 292
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #13",
+        "uid" : "2bcea3189a59723",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548790983,
+          "stop" : 1565548791275,
+          "duration" : 292
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint POST positive test with required fields #14",
+        "uid" : "ed352fdfdc57a665",
+        "parentUid" : "e6d4a32adf9590756abbacb61afe8907",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548791280,
+          "stop" : 1565548791571,
+          "duration" : 291
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e6d4a32adf9590756abbacb61afe8907"
+    }, {
+      "name" : "didn't get expected result ==> expected: <{\"id\":\"0\",\"category\":{\"id\":\"null\",\"name\":\"null\"},\"name\":\"\",\"photoUrls\":[],\"tags\":[],\"status\":\"sold\"}> but was: <{\"id\":\"-9223372036854775808\",\"category\":{\"id\":\"0\",\"name\":\"null\"},\"name\":\"\",\"photoUrls\":[],\"tags\":[],\"status\":\"sold\"}>",
+      "children" : [ {
+        "name" : "Pet endpoint POST positive test with all fields #2",
+        "uid" : "930e0fbfa5ebd38a",
+        "parentUid" : "56a94c971174cdfe7413637ad1d027c1",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548780816,
+          "stop" : 1565548781154,
+          "duration" : 338
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "56a94c971174cdfe7413637ad1d027c1"
+    }, {
+      "name" : "didn't get expected result ==> expected: <{\"id\":\"0\",\"category\":{\"id\":\"null\",\"name\":\"null\"},\"name\":\"\",\"photoUrls\":[],\"tags\":[],\"status\":\"\"}> but was: <{\"id\":\"-9223372036854775808\",\"category\":{\"id\":\"0\",\"name\":\"null\"},\"name\":\"\",\"photoUrls\":[],\"tags\":[],\"status\":\"\"}>",
+      "children" : [ {
+        "name" : "Pet endpoint POST positive test with all fields #4",
+        "uid" : "3599574b95ffdd85",
+        "parentUid" : "62d9c691f42f60fd677be1995d00e666",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548781475,
+          "stop" : 1565548781772,
+          "duration" : 297
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "62d9c691f42f60fd677be1995d00e666"
+    }, {
+      "name" : "didn't get expected result ==> expected: <{\"id\":\"0\",\"category\":{\"id\":\"4556\",\"name\":\"dog\"},\"name\":\"\",\"photoUrls\":[],\"tags\":[],\"status\":\"pending\"}> but was: <{\"id\":\"-9223372036854775808\",\"category\":{\"id\":\"4556\",\"name\":\"dog\"},\"name\":\"\",\"photoUrls\":[],\"tags\":[],\"status\":\"pending\"}>",
+      "children" : [ {
+        "name" : "Pet endpoint POST positive test with required fields #3",
+        "uid" : "fd8ef01b96806477",
+        "parentUid" : "71223945f350b171c8f47b48abc56877",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548782958,
+          "stop" : 1565548783262,
+          "duration" : 304
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "71223945f350b171c8f47b48abc56877"
+    }, {
+      "name" : "didn't get expected result, actual status code is 200 ==> expected: <404> but was: <200>",
+      "children" : [ {
+        "name" : "Pet endpoint PUT positive test #1",
+        "uid" : "3fc5a6828bcbc4b1",
+        "parentUid" : "d679d1db7d787be2dd6bad28e035f016",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548793079,
+          "stop" : 1565548793927,
+          "duration" : 848
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint PUT positive test #2",
+        "uid" : "97b1a06453dee1c8",
+        "parentUid" : "d679d1db7d787be2dd6bad28e035f016",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548793934,
+          "stop" : 1565548794932,
+          "duration" : 998
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint PUT positive test #3",
+        "uid" : "8d0658781bf5020a",
+        "parentUid" : "d679d1db7d787be2dd6bad28e035f016",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548794938,
+          "stop" : 1565548795803,
+          "duration" : 865
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d679d1db7d787be2dd6bad28e035f016"
+    }, {
+      "name" : "didn't get expected result, actual status code is 500 ==> expected: <400> but was: <500>",
+      "children" : [ {
+        "name" : "Pet endpoint PUT positive test #1",
+        "uid" : "6686b685dd60ebae",
+        "parentUid" : "67e98d2abc461b31e75176e3b7efb2d5",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548795809,
+          "stop" : 1565548796111,
+          "duration" : 302
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint PUT positive test #2",
+        "uid" : "172ee468a527cff2",
+        "parentUid" : "67e98d2abc461b31e75176e3b7efb2d5",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548796117,
+          "stop" : 1565548796398,
+          "duration" : 281
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint PUT positive test #3",
+        "uid" : "7af430981e74d873",
+        "parentUid" : "67e98d2abc461b31e75176e3b7efb2d5",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548796403,
+          "stop" : 1565548796689,
+          "duration" : 286
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint PUT positive test #4",
+        "uid" : "573445ce320d7815",
+        "parentUid" : "67e98d2abc461b31e75176e3b7efb2d5",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548796695,
+          "stop" : 1565548797011,
+          "duration" : 316
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint PUT positive test #6",
+        "uid" : "d73faf8463f1a1d4",
+        "parentUid" : "67e98d2abc461b31e75176e3b7efb2d5",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548797325,
+          "stop" : 1565548797628,
+          "duration" : 303
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Pet endpoint PUT positive test #7",
+        "uid" : "ae6e4eb3e7ad0194",
+        "parentUid" : "67e98d2abc461b31e75176e3b7efb2d5",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548797633,
+          "stop" : 1565548797918,
+          "duration" : 285
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "67e98d2abc461b31e75176e3b7efb2d5"
+    }, {
+      "name" : "didn't get expected result, actual status code is 200 ==> expected: <400> but was: <200>",
+      "children" : [ {
+        "name" : "Pet endpoint PUT positive test #5",
+        "uid" : "97fa1197fae12495",
+        "parentUid" : "5f8c1b471a0206a575aa500d2d013528",
+        "status" : "failed",
+        "time" : {
+          "start" : 1565548797017,
+          "stop" : 1565548797319,
+          "duration" : 302
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "5f8c1b471a0206a575aa500d2d013528"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}
