@@ -21,7 +21,7 @@ public class PetPutPositiveTests extends BaseTest {
     private PetAssertions assertions;
     private PetBuilderJackson builder;
 
-    @ParameterizedTest(name = "Pet endpoint PUT positive test #{0}")
+    @ParameterizedTest(name = "Pet endpoint PUT status 200 #{0}")
     @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#putPositive")
     @Step("Pet endpoint PUT positive test started ")
     @Description(value = "test checks PUT request with valid data, " +
@@ -43,7 +43,7 @@ public class PetPutPositiveTests extends BaseTest {
         assertions.assertResponseBody(putResponse, updatedPet);
     }
 
-    @ParameterizedTest(name = "Pet endpoint PUT positive test #{0}")
+    @ParameterizedTest(name = "Pet endpoint PUT status 404 test #{0}")
     @ValueSource(ints = {1, 2, 3})
     @Step("Pet endpoint PUT positive test started ")
     @Description(value = "test checks PUT request with nonexistent id, " +
@@ -64,7 +64,7 @@ public class PetPutPositiveTests extends BaseTest {
         assertions.assertStatusCode(putResponse, StatusCodes.CODE404.getCode());
     }
 
-    @ParameterizedTest(name = "Pet endpoint PUT positive test #{0}")
+    @ParameterizedTest(name = "Pet endpoint PUT status 400 #{0}")
     @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#invalidId")
     @Step("Pet endpoint PUT positive test started ")
     @Description(value = "test checks PUT request with invalid id, " +
