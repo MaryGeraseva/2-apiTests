@@ -52,44 +52,46 @@ public class PetDataProvider {
         JsonNodeFactory factory = new JsonNodeFactory(false);
 
         return Stream.of(
-                arguments(1, "5550", factory.objectNode(), "", factory.arrayNode(), factory.arrayNode(), PetStatuses.PENDING.nameLowerCase(), StatusCodes.CODE200.getCode()),
-                arguments(2, "0", factory.objectNode(), "", factory.arrayNode(), factory.arrayNode(), PetStatuses.SOLD.nameLowerCase(), StatusCodes.CODE405_POST.getCode()),
-                arguments(3, "552", factory.objectNode(), "", factory.arrayNode(), factory.arrayNode(), "", StatusCodes.CODE405_POST.getCode()),
-                arguments(4, "0", factory.objectNode(), "", factory.arrayNode(), factory.arrayNode(), "", StatusCodes.CODE405_POST.getCode())
+                arguments(1, "5550", factory.objectNode(), "", factory.arrayNode(), factory.arrayNode(), PetStatuses.PENDING.nameLowerCase(), StatusCodes.CODE200),
+                arguments(2, "0", factory.objectNode(), "", factory.arrayNode(), factory.arrayNode(), PetStatuses.SOLD.nameLowerCase(), StatusCodes.CODE405_POST),
+                arguments(3, "5520", factory.objectNode(), "", factory.arrayNode(), factory.arrayNode(), "", StatusCodes.CODE405_POST),
+                arguments(4, "0", factory.objectNode(), "", factory.arrayNode(), factory.arrayNode(), "", StatusCodes.CODE405_POST)
         );
     }
 
     public static Stream<Arguments> postAllFieldsStatus200() {
         return Stream.of(
-                arguments(1, "4552", "2336", "cat", "tom", Arrays.asList(),
-                        Map.of("2346", "hot","2347", "sale"), PetStatuses.AVAILABLE.nameLowerCase()),
-                arguments(2, "4554", "2336", "cat", "bobik", Arrays.asList("https://photo1.jpg"),
-                        Map.of("-9223372036854775808", "sale"), PetStatuses.SOLD.nameLowerCase()),
-                arguments(3, "4556", "2336", "cat", "lisa", Arrays.asList("https://photo1.jpg"),
-                        Map.of("9223372036854775807", "vip"), PetStatuses.PENDING.nameLowerCase()),
-                arguments(4, "4558", "2338", "dog", "tom", Arrays.asList("https://photo1.jpg"),
-                        Map.of("0", "hot"), PetStatuses.AVAILABLE.nameLowerCase()),
-                arguments(5, "4559", "2339", "dog", "lisa", Arrays.asList("https://photo1.jpg","https://photo2.jpg"),
-                        Map.of("0", ""), PetStatuses.AVAILABLE.nameLowerCase()),
-                arguments(6, "4560", "2336", "cat", "bobik", Arrays.asList("https://photo1.jpg"),
-                        Map.of("2366", ""), PetStatuses.SOLD.nameLowerCase()),
-                arguments(7, "4561", "2337", "cat", "tom", Arrays.asList("https://photo1.jpg","https://photo2.jpg"),
-                        Map.of("0", "\"[|]'~<!--@/*$%^&#*/()?sпнльGGSAШывф+/-#"), PetStatuses.AVAILABLE.nameLowerCase()),
-                arguments(8, "4563", "2339", "dog", "", Arrays.asList("https://photo1.jpg","https://photo2.jpg"),
-                        Map.of("2354", "hot", "2355", "vip"), PetStatuses.SOLD.nameLowerCase()),
-                arguments(9, "4564", "2336", "cat", "[|]'~<!--@/*$%^&#*/()?ф+/-#", Arrays.asList("https://photo1.jpg"),
+                arguments(1, "45556", "233956", "fish", "", Arrays.asList("https://photo1.jpg","https://photo2.jpg"),
+                        Map.of("235434", "best"), PetStatuses.SOLD.nameLowerCase()),
+                arguments(2, "4564", "2336", "cat", "[|]'~<!--@/*$%^&#*/()?sпнльGGSAШывф+/-#", Arrays.asList("https://photo1.jpg"),
                         Map.of("2355", "vip", "2356", "sale"), PetStatuses.AVAILABLE.nameLowerCase()),
-                arguments(10, "45556", "233956", "fish", "", Arrays.asList("https://photo1.jpg","https://photo2.jpg"),
-                        Map.of("235434", "best"), PetStatuses.SOLD.nameLowerCase())
+                arguments(3, "4552", "2336", "cat", "tom", Arrays.asList(),
+                        Map.of("2346", "hot","2347", "sale"), PetStatuses.AVAILABLE.nameLowerCase()),
+
+                arguments(5, "4556", "2336", "cat", "lisa", Arrays.asList("https://photo1.jpg"),
+                        Map.of("9223372036854775807", "vip"), PetStatuses.PENDING.nameLowerCase()),
+
+                arguments(9, "4561", "2337", "cat", "tom", Arrays.asList("https://photo1.jpg","https://photo2.jpg"),
+                        Map.of("1515", "\"[|]'~<!--@/*$%^&#*/()?sпнльGGSAШывф+/-#"), PetStatuses.AVAILABLE.nameLowerCase()),
+                arguments(8, "4560", "2336", "cat", "bobik", Arrays.asList("https://photo1.jpg"),
+                        Map.of("2366", ""), PetStatuses.SOLD.nameLowerCase()),
+                arguments(10, "4563", "2339", "dog", "", Arrays.asList("https://photo1.jpg","https://photo2.jpg"),
+                        Map.of("2354", "hot", "2355", "vip"), PetStatuses.SOLD.nameLowerCase())
         );
     }
 
     public static Stream<Arguments> postAllFieldsStatus405() {
         return Stream.of(
+                arguments(4, "4554", "2336", "cat", "bobik", Arrays.asList("https://photo1.jpg"),
+                        Map.of("-9223372036854775808", "sale"), PetStatuses.SOLD.nameLowerCase()),
                 arguments(1, "4555", "2339", "dog", "tom", Arrays.asList("https://photo1.jpg", "https://photo2.jpg"),
                         Map.of(" -9223372036854775809",  "vip"), PetStatuses.AVAILABLE.nameLowerCase()),
                 arguments(2, "4557", "2337", "cat", "bobik", Arrays.asList("https://photo1.jpg", "https://photo2.jpg"),
                         Map.of("9223372036854775808", "sale"), PetStatuses.SOLD.nameLowerCase()),
+                arguments(6, "4558", "2338", "dog", "tom", Arrays.asList("https://photo1.jpg"),
+                        Map.of("0", "hot"), PetStatuses.AVAILABLE.nameLowerCase()),
+                arguments(7, "4559", "2339", "dog", "lisa", Arrays.asList("https://photo1.jpg","https://photo2.jpg"),
+                        Map.of("0", ""), PetStatuses.AVAILABLE.nameLowerCase()),
                 arguments(3, "45591", "2339", "dog", "tom", Arrays.asList("https://photo1.jpg"),
                         Map.of("id", "hot"), PetStatuses.AVAILABLE.nameLowerCase())
         );
@@ -141,12 +143,14 @@ public class PetDataProvider {
     public static Stream<Arguments> invalidId() {
         return Stream.of(
                 arguments(1, "-9223372036854775809"),
-                arguments(2, "9223372036854775808"),
-                arguments(3, "0.4"),
-                arguments(4, "45,6"),
-                arguments(5, "0"),
-                arguments(6, "id"),
-                arguments(7, "/")
+                arguments(2, "-9223372036854775808"),
+                arguments(3, "0"),
+                arguments(4, "9223372036854775808"),
+                arguments(5, "0.4"),
+                arguments(6, "45,6"),
+                arguments(7, "id"),
+                arguments(8, ""),
+                arguments(9, "/")
         );
     }
 

@@ -38,7 +38,7 @@ public class PetPostCaseSensitiveTest extends BaseTest {
         pet.put(field, PetStatuses.getRandom().name());
         response = controller.addPet(pet);
 
-        assertions.assertStatusCode(response, StatusCodes.CODE200.getCode());
+        assertions.assertStatusCode(response, StatusCodes.CODE200);
         assertions.assertCaseSensitive(response, pet, field);
     }
 
@@ -64,7 +64,7 @@ public class PetPostCaseSensitiveTest extends BaseTest {
         pet.set(field, category);
         response = controller.addPet(pet);
 
-        assertions.assertStatusCode(response, StatusCodes.CODE200.getCode());
+        assertions.assertStatusCode(response, StatusCodes.CODE200);
         assertions.assertCaseSensitive(response, pet, field, nestedField);
     }
 }

@@ -48,10 +48,10 @@ public class PetController extends AbstractController {
                     .put();
     }
 
-    public void deletePet(String id) {
-        given()
-        .when()
-                .delete(id);
+    public Response deletePet(String id) {
+        return given()
+               .when()
+                     .delete(id);
     }
 
     public Object getPetById(String id) {

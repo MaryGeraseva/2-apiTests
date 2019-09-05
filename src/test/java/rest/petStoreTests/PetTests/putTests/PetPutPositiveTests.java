@@ -15,69 +15,25 @@ import petStore.сontrollers.PetController;
 
 public class PetPutPositiveTests extends BaseTest {
 
-    private Response postResponse;
-    private Response putResponse;
-    private PetController controller;
-    private PetAssertions assertions;
-    private PetBuilderJackson builder;
-
     @ParameterizedTest(name = "Pet endpoint PUT status 200 #{0}")
     @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#putPositive")
     @Step("Pet endpoint PUT positive test started ")
     @Description(value = "test checks PUT request with valid data, " +
                          "expected response status code 200 and well-formed json with test data")
     public void PetPutPositiveTest200(int testId, String field, String nestedField) {
-        controller = new PetController();
-        assertions = new PetAssertions();
-        builder = new PetBuilderJackson();
+        PetController controller = new PetController();
+        PetAssertions assertions = new PetAssertions();
+        PetBuilderJackson builder = new PetBuilderJackson();
 
         ObjectNode pet = builder.withAllFields().build();
-        postResponse = controller.addPet(pet);
+        Response postResponse = controller.addPet(pet);
 
-        assertions.assertStatusCode(postResponse, StatusCodes.CODE200.getCode());
+        assertions.assertStatusCode(postResponse, StatusCodes.CODE200);
 
         ObjectNode updatedPet = builder.getUpdatedPet(pet, field, nestedField).build();
-        putResponse = controller.updatePet(updatedPet);
+        Response putResponse = controller.updatePet(updatedPet);
 
-        assertions.assertStatusCode(putResponse, StatusCodes.CODE200.getCode());
+        assertions.assertStatusCode(putResponse, StatusCodes.CODE200);
         assertions.assertResponseBody(putResponse, updatedPet);
-    }
-
-    @ParameterizedTest(name = "Pet endpoint PUT status 404 test #{0}")
-    @ValueSource(ints = {1, 2, 3})
-    @Step("Pet endpoint PUT positive test started ")
-    @Description(value = "test checks PUT request with nonexistent id, " +
-            "expected response status code 404 and Pet not found message")
-    public void PetPutNoFoundTest404(int testId) {
-        controller = new PetController();
-        assertions = new PetAssertions();
-        builder = new PetBuilderJackson();
-
-        ObjectNode pet = builder.withAllFields().build();
-
-        postResponse = controller.addPet(pet);
-        assertions.assertStatusCode(postResponse, StatusCodes.CODE200.getCode());
-
-        controller.deletePet(builder.getPetId());
-        putResponse = controller.updatePet(pet);
-
-        assertions.assertStatusCode(putResponse, StatusCodes.CODE404.getCode());
-    }
-
-    @ParameterizedTest(name = "Pet endpoint PUT status 400 #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#invalidId")
-    @Step("Pet endpoint PUT positive test started ")
-    @Description(value = "test checks PUT request with invalid id, " +
-            "expected response status code 400 and Invalid ID supplied")
-    public void PetPutInvalidId400(int testId, String id) {
-        controller = new PetController();
-        assertions = new PetAssertions();
-        builder = new PetBuilderJackson();
-
-        ObjectNode pet = builder.withAllFields().build();
-        builder.setPetId(id);
-        putResponse = controller.updatePet(pet);
-
-        assertions.assertStatusCode(putResponse, StatusCodes.CODE400.getCode());
     }
 }

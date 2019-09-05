@@ -20,7 +20,7 @@ public class PetStoreResponse {
     public PetStoreResponse(StatusCodes statusLine) {
         this.code = statusLine.getCode();
         this.type = statusLine.getType();
-        this.message = statusLine.getMessage();
+        this.message = statusLine.getBodyMessage();
     }
 
     public Integer getCode() {

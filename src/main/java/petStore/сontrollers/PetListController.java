@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import petStore.models.enums.PetFields;
 import petStore.models.petModel.PetModel;
 
 import java.io.IOException;
@@ -16,24 +17,16 @@ public class PetListController extends AbstractController {
 
     public PetListController() {
         RestAssured.requestSpecification = AbstractController.requestSpecBuilder
-                .setBasePath("/pet/findByStatus")
+                .setBasePath(PetStoreEndpoints.PETS_BY_STATUS.getPath())
                 .build();
     }
 
-    public List<PetModel> getPetsByStatus(String statuses) {
-        List<PetModel> petList = new ArrayList<>();
+    public Response getPetsByStatus(String statuses) {
         Response response =
                 given()
-                        .formParam("status", statuses)
+                        .formParam(PetFields.STATUS.getValue(), statuses)
                         .when()
                         .get();
-        ObjectMapper mapper = new ObjectMapper();
-        String s = response.body().asString();
-        try {
-            petList = mapper.readValue(s, new TypeReference<List<PetModel>>(){});
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return petList;
+        return response;
     }
 }

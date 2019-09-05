@@ -74,11 +74,11 @@ public class PetBuilderJackson {
         factory = new JsonNodeFactory(false);
         pet = factory.objectNode();
 
-        pet.put(ID.getValue(), getNewFieldValue(ID.getValue()));
-        pet.set(CATEGORY.getValue(), petModel.getCategory(getNewFieldValue(ID.getValue()), getNewFieldValue(NAME.getValue())));
-        pet.put(NAME.getValue(), getNewFieldValue(NAME.getValue()));
-        pet.set(PHOTO_URLS.getValue(), petModel.getPhotoUrls(Arrays.asList(getNewFieldValue(PHOTO_URLS.getValue()))));
-        pet.set(TAGS.getValue(), petModel.getTags(getNewFieldValue(ID.getValue()), getNewFieldValue(NAME.getValue())));
+        pet.put(ID.getValue(), DataGenerator.getNewFieldValue(ID.getValue()));
+        pet.set(CATEGORY.getValue(), petModel.getCategory(DataGenerator.getNewFieldValue(ID.getValue()), DataGenerator.getNewFieldValue(NAME.getValue())));
+        pet.put(NAME.getValue(), DataGenerator.getNewFieldValue(NAME.getValue()));
+        pet.set(PHOTO_URLS.getValue(), petModel.getPhotoUrls(Arrays.asList(DataGenerator.getNewFieldValue(PHOTO_URLS.getValue()))));
+        pet.set(TAGS.getValue(), petModel.getTags(DataGenerator.getNewFieldValue(ID.getValue()), DataGenerator.getNewFieldValue(NAME.getValue())));
         pet.put(STATUS.getValue(), PetStatuses.getRandom().nameLowerCase());
 
         return this;
@@ -92,14 +92,14 @@ public class PetBuilderJackson {
             pet.set(PHOTO_URLS.getValue(), petModel.getPhotoUrls(
                     Arrays.asList(RandomStringUtils.randomAlphabetic(5))));
         } else {
-            pet.put(field, getNewFieldValue(field));
+            pet.put(field, DataGenerator.getNewFieldValue(field));
         }
 
         return this;
     }
 
     private PetBuilderJackson updatePetField(String field, String nestedField, ObjectNode pet) {
-        String newNestedField = getNewFieldValue(nestedField);
+        String newNestedField = DataGenerator.getNewFieldValue(nestedField);
 
         if (field.equals(TAGS.getValue())) {
             JsonNode newTags = pet.get(field);
@@ -113,20 +113,6 @@ public class PetBuilderJackson {
         }
 
         return this;
-    }
-
-    private String getNewFieldValue(String field) {
-        String newNestedField;
-        if (field.equals(ID.getValue())) {
-            newNestedField = getRandomNumericString(100000);
-        } else {
-            newNestedField = RandomStringUtils.randomAlphabetic(7);
-        }
-        return newNestedField;
-    }
-
-    private String getRandomNumericString(int border) {
-        return String.valueOf((int)(Math.random()*border+1));
     }
 
     public PetBuilderJackson getUpdatedPet(ObjectNode pet, String field, String nestedField) {

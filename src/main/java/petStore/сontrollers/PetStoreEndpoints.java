@@ -4,9 +4,7 @@ public enum PetStoreEndpoints {
 
     URL("http://petstore.swagger.io/v2"),
     PET("/pet"),
-    PETS_BY_STATUS("/pet/findByStatus"),
-    STORE("/store/order"),
-    STORE_ALL_INVENTORY("/store/order");
+    PETS_BY_STATUS("/pet/findByStatus");
 
     private String path;
 

@@ -10,19 +10,19 @@ import petStore.assertions.PetAssertions;
 import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
-public class PetPostNegativeTests extends BaseTest {
+public class PetPostNegativeTestWithJsonData extends BaseTest {
 
     @ParameterizedTest(name = "Pet endpoint POST negative test #{0}")
     @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#negativeWithJsonData")
     @Step("Pet endpoint POST negative test started ")
     @Description(value = "test checks POST request with empty request body, with additional nonexistent field," +
                          "without required fields, expected result status code 405")
-    public void PetPostNegativeTest(int testId, String json) {
+    public void PetPostNegativeTestWithJsonData405(int testId, String json) {
         PetController controller = new PetController();
         PetAssertions assertions = new PetAssertions();
 
         Response response = controller.addPet(json);
-        assertions.assertStatusCode(response,  StatusCodes.CODE405_POST.getCode());
+        assertions.assertStatusCode(response,  StatusCodes.CODE405_POST);
         assertions.assertResponseBody(response, StatusCodes.CODE405_POST);
     }
 }

@@ -5,6 +5,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
 import petStore.models.enums.PetStatuses;
 
+import java.util.Random;
+
 public class DemoTest extends BaseTest {
 
 
@@ -87,7 +89,7 @@ public class DemoTest extends BaseTest {
 
 
 //        System.out.println(RandomStringUtils.random((6), "1234567890"));
-        System.out.println(PetStatuses.getNewStatus("sold"));
+//        System.out.println(String.valueOf(new Random().nextInt(3) ));
 
 
 
