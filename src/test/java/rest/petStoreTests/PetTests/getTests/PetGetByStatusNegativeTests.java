@@ -15,7 +15,7 @@ import petStore.сontrollers.PetListController;
 @DisplayNameGeneration(ReplaceCamelCase.class)
 public class PetGetByStatusNegativeTests extends BaseTest {
 
-    @ParameterizedTest(name = "Pet endpoint GET pet list by status negative test #{0}")
+    @ParameterizedTest(name = "GET by status negative test #{0}")
     @CsvSource({
             "1, 'testStatus'",
             "2, 'AVAILABLE'",

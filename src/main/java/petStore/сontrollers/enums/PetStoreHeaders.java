@@ -1,11 +1,11 @@
-package petStore.сontrollers;
+package petStore.сontrollers.enums;
 
 import io.restassured.http.ContentType;
 
 public enum PetStoreHeaders {
 
     KEY("api_key", "maryTest062019"),
-    ACCEPT("Accept", ContentType.JSON.toString());
+    CONTENT_TYPE("Content-Type", ContentType.JSON.toString());
 
     private String headerName;
     private String headerValue;

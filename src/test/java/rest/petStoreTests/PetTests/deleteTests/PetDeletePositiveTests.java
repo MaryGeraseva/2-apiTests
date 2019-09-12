@@ -17,7 +17,7 @@ import petStore.сontrollers.PetController;
 @DisplayNameGeneration(ReplaceCamelCase.class)
 public class PetDeletePositiveTests extends BaseTest {
 
-    @ParameterizedTest(name = "Pet endpoint DELETE positive test #{0}")
+    @ParameterizedTest(name = "DELETE positive test #{0}")
     @ValueSource(ints = {1, 2, 3})
     @Step("Pet endpoint DELETE positive test started ")
     @Description(value = "test checks DELETE request with valid id, " +

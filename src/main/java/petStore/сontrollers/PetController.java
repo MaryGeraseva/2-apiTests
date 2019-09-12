@@ -3,8 +3,7 @@ package petStore.сontrollers;
 import com.fasterxml.jackson.databind.JsonNode;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import petStore.models.petModel.PetModel;
-import petStore.responses.PetStoreResponse;
+import petStore.сontrollers.enums.PetStoreEndpoints;
 
 import static io.restassured.RestAssured.given;
 
@@ -54,18 +53,18 @@ public class PetController extends AbstractController {
                      .delete(id);
     }
 
-    public Object getPetById(String id) {
-        Response response = given()
-                            .when()
-                                .get(id);
-        if (response.statusCode() == 200) {
-            return response.as(PetModel.class);
-        } else {
-            return response.as(PetStoreResponse.class);
-        }
-    }
+//    public Object getPetById(String id) {
+//        Response response = given()
+//                            .when()
+//                                .get(id);
+//        if (response.statusCode() == 200) {
+//            return response.as(PetModel.class);
+//        } else {
+//            return response.as(PetStoreResponse.class);
+//        }
+//    }
 
-    public Response getResponseById(String id) {
+    public Response getPetById(String id) {
         return given()
                 .when()
                     .get(id);

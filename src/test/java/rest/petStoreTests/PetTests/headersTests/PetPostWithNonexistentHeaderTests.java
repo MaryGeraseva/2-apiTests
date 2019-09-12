@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.getTests;
+package rest.petStoreTests.PetTests.headersTests;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import common.BaseTest;
@@ -8,30 +8,29 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.MethodSource;
 import petStore.assertions.PetAssertions;
 import petStore.models.builders.PetBuilderJackson;
 import petStore.responses.StatusCodes;
-import petStore.сontrollers.PetController;
+import petStore.сontrollers.ModifiablePetController;
+
+import java.util.Map;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetGetPositiveTests extends BaseTest {
+public class PetPostWithNonexistentHeaderTests extends BaseTest {
 
-    @ParameterizedTest(name = "Pet endpoint GET positive test #{0}")
-    @ValueSource(ints = {1, 2, 3})
-    @Step("Pet endpoint GET positive test started")
-    @Description(value = "test checks GET request with valid id, " +
+    @ParameterizedTest(name = "POST with nonexistent header #{0}")
+    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#nonexistentHeaders")
+    @Step("Pet endpoint POST request with additional nonexistent header test started")
+    @Description(value = "test checks POST request with additional nonexistent header, " +
             "expected response status code 200 and and well-formed json with test data")
-    public void PetGetPositiveTest200(int testId) {
-        PetController controller = new PetController();
+    public void PetPostWithNonexistentHeaderTests200(int testId, Map<String, String> headers) {
+        ModifiablePetController controller = new ModifiablePetController();
         PetAssertions assertions = new PetAssertions();
         PetBuilderJackson builder = new PetBuilderJackson();
 
         ObjectNode pet = builder.withAllFields().build();
-        Response response = controller.addPet(pet);
-        assertions.assertStatusCode(response, StatusCodes.CODE200);
-
-        response = controller.getPetById(builder.getPetId());
+        Response response = controller.addPet(pet, headers);
         assertions.assertResponseBodyAndStatus(response, pet, StatusCodes.CODE200);
     }
 }

@@ -21,7 +21,7 @@ public class PetDeleteNegativeTests extends BaseTest {
     private PetController controller;
     private PetAssertions assertions;
 
-    @ParameterizedTest(name = "Pet endpoint DELETE not found test #{0}")
+    @ParameterizedTest(name = "DELETE not found test #{0}")
     @ValueSource(ints = {1, 2, 3})
     @Step("Pet endpoint DELETE not found test started ")
     @Description(value = "test checks DELETE request with nonexistent id, " +

@@ -90,9 +90,6 @@ public class DemoTest extends BaseTest {
 
 //        System.out.println(RandomStringUtils.random((6), "1234567890"));
 //        System.out.println(String.valueOf(new Random().nextInt(3) ));
-
-
-
     }
 
 }

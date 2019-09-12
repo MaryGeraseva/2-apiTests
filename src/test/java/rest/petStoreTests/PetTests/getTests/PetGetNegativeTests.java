@@ -21,9 +21,9 @@ public class PetGetNegativeTests extends BaseTest {
     private PetController controller;
     private PetAssertions assertions;
 
-    @ParameterizedTest(name = "Pet endpoint GET positive test #{0}")
+    @ParameterizedTest(name = "GET not found test #{0}")
     @ValueSource(ints = {1, 2, 3})
-    @Step("Pet endpoint GET positive test started ")
+    @Step("Pet endpoint GET request with nonexistent id test started ")
     @Description(value = "test checks GET request with nonexistent id, " +
             "expected response status code 404 and Pet not found message")
     public void PetGetNotFoundTest404(int testId) {
@@ -33,20 +33,20 @@ public class PetGetNegativeTests extends BaseTest {
         String petId = DataGenerator.getRandomId();
         response = controller.deletePet(petId);
 
-        response = controller.getResponseById(petId);
+        response = controller.getPetById(petId);
         assertions.assertResponseBodyAndStatus(response, StatusCodes.CODE404);
     }
 
-    @ParameterizedTest(name = "Pet endpoint GET positive test #{0}")
+    @ParameterizedTest(name = "GET invalid id test #{0}")
     @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#invalidId")
-    @Step("Pet endpoint GET positive test started ")
+    @Step("Pet endpoint GET request with invalid id test started ")
     @Description(value = "test checks GET request with invalid id, " +
             "expected response status code 400 and Invalid ID supplied")
     public void PetGetInvalidId400(int testId, String id) {
         controller = new PetController();
         assertions = new PetAssertions();
 
-        response = controller.getResponseById(id);
+        response = controller.getPetById(id);
 
         assertions.assertResponseBodyAndStatus(response, StatusCodes.CODE400);
     }

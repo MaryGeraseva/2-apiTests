@@ -22,10 +22,6 @@ import java.util.Map;
 @DisplayNameGeneration(ReplaceCamelCase.class)
 public class PetPostPositiveTestsWithAllFields extends BaseTest {
 
-    private Response response;
-    private PetController controller;
-    private PetAssertions assertions;
-
     @ParameterizedTest(name = "Pet endpoint POST positive test with all fields #{0}")
     @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#postAllFieldsStatus200")
     @Step("Pet endpoint POST positive test with all fields and headers started")
@@ -33,12 +29,12 @@ public class PetPostPositiveTestsWithAllFields extends BaseTest {
             "valid data, expected response status code 200 and well-formed json with test data")
     public void PetPostPositiveTestsWithAllFields200(int testId, String petId, String categoryId, String categoryName,
                                                      String name, List<String> photoUrls, Map<String, String> items, String petStatus) {
-        controller = new PetController();
-        assertions = new PetAssertions();
+        PetController controller = new PetController();
+        PetAssertions assertions = new PetAssertions();
 
         JsonNode pet = new PetBuilderJackson()
                 .withAllFields(petId, categoryId, categoryName, name, photoUrls, items, petStatus).build();
-        response = controller.addPet(pet);
+        Response response = controller.addPet(pet);
 
         assertions.assertStatusCode(response, StatusCodes.CODE200);
         assertions.assertResponseBody(response, pet);

@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import petStore.models.enums.PetFields;
 import petStore.models.enums.PetStatuses;
 import petStore.responses.StatusCodes;
+import petStore.сontrollers.enums.PetStoreHeaders;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -154,5 +155,22 @@ public class PetDataProvider {
         );
     }
 
+    public static Stream<Arguments> invalidHeaders() {
+        return Stream.of(
+                arguments(1, Map.of("api_key", "testKey", "Content-Type", "application/json")),
+                arguments(2, Map.of("api_key", "null", "Content-Type", "application/json")),
+                arguments(3, Map.of("api_key", "", "Content-Type", "application/json"))
+        );
+    }
 
+    public static Stream<Arguments> nonexistentHeaders() {
+        return Stream.of(
+                arguments(1, Map.of(PetStoreHeaders.KEY.getHeaderName(), PetStoreHeaders.KEY.getHeaderValue(),
+                             PetStoreHeaders.CONTENT_TYPE.getHeaderName(), PetStoreHeaders.CONTENT_TYPE.getHeaderValue(),
+                        "X-Pingback", "test")),
+                arguments(2, Map.of(PetStoreHeaders.KEY.getHeaderName(), PetStoreHeaders.KEY.getHeaderValue(),
+                                PetStoreHeaders.CONTENT_TYPE.getHeaderName(), PetStoreHeaders.CONTENT_TYPE.getHeaderValue(),
+                                "Test_header", "test_value"))
+        );
+    }
 }

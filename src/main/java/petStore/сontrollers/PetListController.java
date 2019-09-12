@@ -1,15 +1,9 @@
 package petStore.сontrollers;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import petStore.models.enums.PetFields;
-import petStore.models.petModel.PetModel;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import petStore.сontrollers.enums.PetStoreEndpoints;
 
 import static io.restassured.RestAssured.given;
 

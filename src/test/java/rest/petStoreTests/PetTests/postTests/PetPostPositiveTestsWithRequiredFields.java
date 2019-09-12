@@ -38,7 +38,7 @@ public class PetPostPositiveTestsWithRequiredFields extends BaseTest {
         assertions.assertStatusCode(response, StatusCodes.CODE200);
         assertions.assertResponseBody(response, pet);
 
-        response = controller.getResponseById(petId);
+        response = controller.getPetById(petId);
         assertions.assertResponseBody(response, pet);
     }
 }

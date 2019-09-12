@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import common.reporting.LogInstance;
 import io.qameta.allure.Step;
+import io.restassured.internal.assertion.Assertion;
 import io.restassured.response.Response;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
@@ -15,7 +16,9 @@ import petStore.responses.StatusCodes;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
 
 public class PetAssertions {
 
@@ -28,6 +31,14 @@ public class PetAssertions {
 
         Assertions.assertEquals(expectedCode, actualCode,
                 String.format("didn't get expected result, actual status code is %s instead of %s", actualCode, expectedCode));
+        log.info(String.format("got status code %s", actualCode));
+    }
+
+    @Step("check responses status code iis client error")
+    public void assertStatusCodeIsClientError(Response response) {
+        int actualCode = response.getStatusCode();
+        Assertions.assertTrue(String.valueOf(actualCode).startsWith("4"),
+                String.format("didn't get expected result, actual status code is %s instead of 4XX", actualCode));
         log.info(String.format("got status code %s", actualCode));
     }
 

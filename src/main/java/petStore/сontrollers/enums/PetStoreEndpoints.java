@@ -1,4 +1,4 @@
-package petStore.сontrollers;
+package petStore.сontrollers.enums;
 
 public enum PetStoreEndpoints {
 
