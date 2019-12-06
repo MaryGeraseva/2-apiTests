@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.headersTests;
+package petStoreTests.headersTests;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import common.BaseTest;
@@ -16,13 +16,13 @@ import petStore.сontrollers.ModifiablePetController;
 import java.util.Map;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetPostWithInvalidHeaderValueTests extends BaseTest {
+public class PostWithInvalidHeaderTests extends BaseTest {
 
     @ParameterizedTest(name = "POST with invalid header #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#invalidHeaders")
+    @MethodSource("petStoreTests.testData.DataProvider#invalidHeaders")
     @Step("Pet endpoint POST request with invalid header value test started")
     @Description(value = "test checks POST request with invalid header value, expected response status code 4XX")
-    public void PetPostWithInvalidHeaderValueTests4XX(int testId, Map<String, String> headers) {
+    public void postWithInvalidHeaderValueTests4XX(int testId, Map<String, String> headers) {
         ModifiablePetController controller = new ModifiablePetController();
         PetAssertions assertions = new PetAssertions();
         PetBuilderJackson builder = new PetBuilderJackson();

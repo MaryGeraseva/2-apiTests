@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.deleteTests;
+package petStoreTests.getTests;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import common.BaseTest;
@@ -15,24 +15,23 @@ import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetDeletePositiveTests extends BaseTest {
+public class GetPositiveTests extends BaseTest {
 
-    @ParameterizedTest(name = "DELETE positive test #{0}")
+    @ParameterizedTest(name = "GET positive test #{0}")
     @ValueSource(ints = {1, 2, 3})
-    @Step("Pet endpoint DELETE positive test started ")
-    @Description(value = "test checks DELETE request with valid id, " +
-            "expected response status code 200 and \"OK\" message")
-    public void PetGetPositiveTest200(int testId) {
+    @Step("Pet endpoint GET positive test started")
+    @Description(value = "test checks GET request with valid id, " +
+            "expected response status code 200, message \"OK\" and and well-formed json with test data")
+    public void getPositiveTest200(int testId) {
         PetController controller = new PetController();
         PetAssertions assertions = new PetAssertions();
         PetBuilderJackson builder = new PetBuilderJackson();
 
         ObjectNode pet = builder.withAllFields().build();
-        String petId = builder.getPetId();
         Response response = controller.addPet(pet);
         assertions.assertStatusCode(response, StatusCodes.CODE200);
 
-        response = controller.deletePet(petId);
-        assertions.assertResponseMessageAndStatus(response, StatusCodes.CODE200);
+        response = controller.getPetById(builder.getPetId());
+        assertions.assertResponseBodyAndStatus(response, pet, StatusCodes.CODE200);
     }
 }

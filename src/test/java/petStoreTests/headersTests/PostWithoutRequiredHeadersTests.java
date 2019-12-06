@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.headersTests;
+package petStoreTests.headersTests;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import common.BaseTest;
@@ -14,7 +14,7 @@ import petStore.models.builders.PetBuilderJackson;
 import petStore.сontrollers.ModifiablePetController;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetPostWithoutRequiredHeadersTests extends BaseTest {
+public class PostWithoutRequiredHeadersTests extends BaseTest {
 
     @ParameterizedTest(name = "POST without headers #{0}")
     @CsvSource({
@@ -23,7 +23,7 @@ public class PetPostWithoutRequiredHeadersTests extends BaseTest {
     })
     @Step("Pet endpoint POST request without required headers test started")
     @Description(value = "test checks POST request without required headers, expected response status code 4XX")
-    public void PetPostWithoutRequiredHeaderTests4XX(int testId, String headerName, String headerValue) {
+    public void postWithoutRequiredHeaderTests4XX(int testId, String headerName, String headerValue) {
         ModifiablePetController controller = new ModifiablePetController();
         PetAssertions assertions = new PetAssertions();
         PetBuilderJackson builder = new PetBuilderJackson();

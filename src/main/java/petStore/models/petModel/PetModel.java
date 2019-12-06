@@ -1,9 +1,9 @@
 package petStore.models.petModel;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PetModel {
 
@@ -25,7 +25,8 @@ public class PetModel {
     @JsonProperty("status")
     private String status;
 
-    public PetModel() {};
+    public PetModel() {
+    }
 
     public PetModel(String id, Category category, String status) {
         this.id = id;
@@ -94,13 +95,13 @@ public class PetModel {
     public String toString() {
         return String.format(
                 "{\"id\":\"%s\"," +
-                 "\"category\":%s," +
-                 "\"name\":\"%s\"," +
-                 "\"photoUrls\":%s," +
-                 "\"tags\":%s," +
-                 "\"status\":\"%s\"}",
-                 getId(), getCategory().toString(), getName(),
-                 getPhotoUrls().toString(), getTags().toString(), getStatus()
+                        "\"category\":%s," +
+                        "\"name\":\"%s\"," +
+                        "\"photoUrls\":%s," +
+                        "\"tags\":%s," +
+                        "\"status\":\"%s\"}",
+                getId(), getCategory().toString(), getName(),
+                getPhotoUrls().toString(), getTags().toString(), getStatus()
         );
     }
 

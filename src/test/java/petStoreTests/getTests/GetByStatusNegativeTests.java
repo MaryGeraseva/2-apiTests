@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.getTests;
+package petStoreTests.getTests;
 
 import common.BaseTest;
 import common.reporting.ReplaceCamelCase;
@@ -13,7 +13,7 @@ import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetListController;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetGetByStatusNegativeTests extends BaseTest {
+public class GetByStatusNegativeTests extends BaseTest {
 
     @ParameterizedTest(name = "GET by status negative test #{0}")
     @CsvSource({
@@ -23,10 +23,10 @@ public class PetGetByStatusNegativeTests extends BaseTest {
             "4, ''",
             "5, '/'"
     })
-    @Step("Pet endpoint GET pet list by status negative test started ")
+    @Step("Pet endpoint GET pet list by status negative test started")
     @Description(value = "test checks GET request with invalid \"status\" field value, " +
             "expected response status code 400 and and message \"Invalid status value\"")
-    public void PetGetByStatusNegativeTest200(int testId, String status) {
+    public void getByStatusNegativeTest400(int testId, String status) {
         PetListController controller = new PetListController();
         PetAssertions assertions = new PetAssertions();
 

@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.getTests;
+package petStoreTests.deleteTests;
 
 import common.BaseTest;
 import common.reporting.ReplaceCamelCase;
@@ -15,39 +15,38 @@ import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetGetNegativeTests extends BaseTest {
+public class DeleteNegativeTests extends BaseTest {
 
     private Response response;
     private PetController controller;
     private PetAssertions assertions;
 
-    @ParameterizedTest(name = "GET not found test #{0}")
+    @ParameterizedTest(name = "DELETE not found test #{0}")
     @ValueSource(ints = {1, 2, 3})
-    @Step("Pet endpoint GET request with nonexistent id test started ")
-    @Description(value = "test checks GET request with nonexistent id, " +
-            "expected response status code 404 and Pet not found message")
-    public void PetGetNotFoundTest404(int testId) {
+    @Step("Pet endpoint DELETE not found test started")
+    @Description(value = "test checks DELETE request with nonexistent id, " +
+            "expected response status code 404 and \"Pet not found\" message")
+    public void deleteNotFoundTest404(int testId) {
         controller = new PetController();
         assertions = new PetAssertions();
 
         String petId = DataGenerator.getRandomId();
         response = controller.deletePet(petId);
 
-        response = controller.getPetById(petId);
-        assertions.assertResponseBodyAndStatus(response, StatusCodes.CODE404);
+        response = controller.deletePet(petId);
+        assertions.assertResponseMessageAndStatus(response, StatusCodes.CODE404);
     }
 
-    @ParameterizedTest(name = "GET invalid id test #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#invalidId")
-    @Step("Pet endpoint GET request with invalid id test started ")
-    @Description(value = "test checks GET request with invalid id, " +
-            "expected response status code 400 and Invalid ID supplied")
-    public void PetGetInvalidId400(int testId, String id) {
+    @ParameterizedTest(name = "DELETE invalid id test #{0}")
+    @MethodSource("petStoreTests.testData.DataProvider#invalidId")
+    @Step("Pet endpoint DELETE invalid id test started")
+    @Description(value = "test checks DELETE request with invalid id, " +
+            "expected response status code 400 and \"Invalid ID supplied\" message")
+    public void deleteInvalidId400(int testId, String id) {
         controller = new PetController();
         assertions = new PetAssertions();
 
-        response = controller.getPetById(id);
-
+        response = controller.deletePet(id);
         assertions.assertResponseBodyAndStatus(response, StatusCodes.CODE400);
     }
 }

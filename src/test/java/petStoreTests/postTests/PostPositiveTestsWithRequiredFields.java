@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.postTests;
+package petStoreTests.postTests;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import common.BaseTest;
@@ -15,30 +15,24 @@ import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetPostPositiveTestsWithRequiredFields extends BaseTest {
+public class PostPositiveTestsWithRequiredFields extends BaseTest {
 
-
-    private Response response;
-    private PetController controller;
-    private PetAssertions assertions;
-
-    @ParameterizedTest(name = "Pet endpoint POST positive test with required fields #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#postRequiredFieldsStatus200")
+    @ParameterizedTest(name = "POST positive test with required fields #{0}")
+    @MethodSource("petStoreTests.testData.DataProvider#postRequiredFieldsStatus200")
     @Step("Pet endpoint POST positive test with required fields and headers started")
     @Description(value = "test checks POST request with headers and required fields which have " +
-            "valid data, expected response status code 200 and well-formed json with test data")
-    public void PetPostPositiveTestsWithRequiredFields200(int testId, String petId, String categoryId,
+            "valid data, expected response status code 200, message \"OK\" and well-formed json with test data")
+    public void postPositiveTestsWithRequiredFields200(int testId, String petId, String categoryId,
                                                           String categoryName, String petStatus) {
-        controller = new PetController();
-        assertions = new PetAssertions();
+        PetController controller = new PetController();
+        PetAssertions assertions = new PetAssertions();
 
         JsonNode pet = new PetBuilderJackson().withRequiredFields(petId, categoryId, categoryName, petStatus).build();
-        response = controller.addPet(pet);
+        Response response = controller.addPet(pet);
 
-        assertions.assertStatusCode(response, StatusCodes.CODE200);
-        assertions.assertResponseBody(response, pet);
+        assertions.assertResponseBodyAndStatus(response, pet, StatusCodes.CODE200);
 
         response = controller.getPetById(petId);
-        assertions.assertResponseBody(response, pet);
+        assertions.assertResponseBodyAndStatus(response, pet, StatusCodes.CODE200);
     }
 }

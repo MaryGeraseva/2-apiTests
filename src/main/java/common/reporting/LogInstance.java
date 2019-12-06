@@ -10,7 +10,8 @@ public class LogInstance {
 
     private static ThreadLocal<Logger> log = new ThreadLocal<>();
 
-    private LogInstance() {}
+    private LogInstance() {
+    }
 
     public static synchronized Logger getLogger() {
         if (log.get() == null) {

@@ -17,7 +17,8 @@ public class PetBuilder {
         return this;
     }
 
-    public PetBuilder withAllFields(String id, Category category, String status, List<String> photoUrls, List<TagsItem> tags, String name) {
+    public PetBuilder withAllFields(String id, Category category, String status, List<String> photoUrls,
+                                    List<TagsItem> tags, String name) {
         withRequiredFields(id, category, status);
         pet.setPhotoUrls(photoUrls);
         pet.setTags(tags);

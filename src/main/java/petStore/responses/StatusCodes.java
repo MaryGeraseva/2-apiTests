@@ -6,6 +6,7 @@ public enum StatusCodes {
     CODE400(400, "error", "Invalid ID supplied", "Bad Request"),
     CODE400_GET_LIST(400, "error", "Invalid status value", "Bad Request"),
     CODE404(404, "error", "Pet not found", "Not Found"),
+    CODE405(405, "", "", "Method Not Allowed"),
     CODE405_POST(405, "error", "Invalid input", "Method Not Allowed"),
     CODE405_PUT(405, "error", "Validation exception", "Method Not Allowed"),
     CODE500(500, "unknown", "something bad happened", "Internal Server Error");

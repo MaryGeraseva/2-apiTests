@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.scenarioTests;
+package petStoreTests.scenarioTests;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import common.BaseTest;
@@ -15,13 +15,13 @@ import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetPostGetPutDeleteTests extends BaseTest {
+public class PostGetPutDeleteTests extends BaseTest {
 
-    @ParameterizedTest(name = "Pet endpoint POST-GET-PUT-DELETE test #{0}")
+    @ParameterizedTest(name = "POST-GET-PUT-DELETE test #{0}")
     @ValueSource(ints = {1, 2, 3})
-    @Step("Pet endpoint POST-GET-PUT-DELETE started ")
+    @Step("Pet endpoint POST-GET-PUT-DELETE started")
     @Description(value = "test checks POST-GET-PUT-DELETE requests with valid data")
-    public void PetPostGetPutDeleteTest(int testId) {
+    public void postGetPutDeleteTest(int testId) {
         PetController controller = new PetController();
         PetAssertions assertions = new PetAssertions();
         PetBuilderJackson builder = new PetBuilderJackson();

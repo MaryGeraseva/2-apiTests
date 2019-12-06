@@ -50,14 +50,4 @@ test {
     systemProperty 'java.util.logging.manager', 'org.apache.logging.log4j.jul.LogManager'
 }
 
-task generateAllureReport(type: Exec) {
-    commandLine 'cmd', '/c', 'allure generate build/allure-results -o build/reports/allure --clean'
-}
-test.finalizedBy(generateAllureReport)
-
-task openAllureReport(type: Exec) {
-    commandLine 'cmd', '/c', 'allure open build/reports/allure'
-}
-
-generateAllureReport.finalizedBy(openAllureReport)
 

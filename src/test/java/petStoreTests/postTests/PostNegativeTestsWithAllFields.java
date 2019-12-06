@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.postTests;
+package petStoreTests.postTests;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -20,18 +20,18 @@ import java.util.List;
 import java.util.Map;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetPostNegativeTestsWithAllFields extends BaseTest {
+public class PostNegativeTestsWithAllFields extends BaseTest {
 
     private Response response;
     private PetController controller;
     private PetAssertions assertions;
 
-    @ParameterizedTest(name = "Pet endpoint POST positive test with all fields #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#postAllFieldsStatus405")
-    @Step("Pet endpoint POST positive test with all fields and headers started")
+    @ParameterizedTest(name = "POST negative test with all fields #{0}")
+    @MethodSource("petStoreTests.testData.DataProvider#postAllFieldsStatus405")
+    @Step("Pet endpoint POST negative test with all fields and headers started")
     @Description(value = "test checks POST request with headers and all fields " +
-            " with invalid data, expected response status code 405")
-    public void PetPostNegativeTestsWitAllFields405(int testId, String petId, String categoryId, String categoryName,
+            " with invalid data, expected response status code 405 and message \"Invalid input\"")
+    public void postNegativeTestsWitAllFields405(int testId, String petId, String categoryId, String categoryName,
                                                     String name, List<String> photoUrls, Map<String, String> items, String petStatus) {
         controller = new PetController();
         assertions = new PetAssertions();
@@ -40,15 +40,14 @@ public class PetPostNegativeTestsWithAllFields extends BaseTest {
                 .withAllFields(petId, categoryId, categoryName, name, photoUrls, items, petStatus).build();
         response = controller.addPet(pet);
 
-        assertions.assertStatusCode(response, StatusCodes.CODE405_POST);
-        assertions.assertResponseBody(response, StatusCodes.CODE405_POST);
+        assertions.assertResponseBodyAndStatus(response, StatusCodes.CODE405_POST);
     }
 
-    @ParameterizedTest(name = "Pet endpoint POST positive test with all fields #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#postPairZeroValue")
-    @Step("Pet endpoint POST positive test with all fields and headers started")
+    @ParameterizedTest(name = "POST pair zero test #{0}")
+    @MethodSource("petStoreTests.testData.DataProvider#postPairZeroValue")
+    @Step("Pet endpoint POST negative test with all fields and headers started")
     @Description(value = "test checks POST request with headers and all fields which have pair zero values")
-    public void PetPostNegativePairZeroTests(int testId, String petId, ObjectNode category, String name,
+    public void postNegativePairZeroTests(int testId, String petId, ObjectNode category, String name,
                                              ArrayNode photoUrls, ArrayNode items, String petStatus, StatusCodes expectedStatus) {
         controller = new PetController();
         assertions = new PetAssertions();

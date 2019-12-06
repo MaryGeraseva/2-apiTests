@@ -103,12 +103,12 @@ public class PetBuilderJackson {
 
         if (field.equals(TAGS.getValue())) {
             JsonNode newTags = pet.get(field);
-            JsonNode newTagItem = ((ArrayNode)newTags).get(0);
-            ((ObjectNode)newTagItem).put(nestedField, newNestedField);
+            JsonNode newTagItem = ((ArrayNode) newTags).get(0);
+            ((ObjectNode) newTagItem).put(nestedField, newNestedField);
             pet.set(field, factory.arrayNode().add(newTagItem));
         } else {
             JsonNode mainField = pet.get(field);
-            ((ObjectNode)mainField).put(nestedField, newNestedField);
+            ((ObjectNode) mainField).put(nestedField, newNestedField);
             pet.set(field, mainField);
         }
 

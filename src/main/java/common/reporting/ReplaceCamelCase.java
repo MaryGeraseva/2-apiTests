@@ -6,7 +6,8 @@ import java.lang.reflect.Method;
 
 public class ReplaceCamelCase extends DisplayNameGenerator.Standard {
 
-    public ReplaceCamelCase() {}
+    public ReplaceCamelCase() {
+    }
 
     public String generateDisplayNameForClass(Class<?> testClass) {
         return this.replaceCapitals(super.generateDisplayNameForClass(testClass));

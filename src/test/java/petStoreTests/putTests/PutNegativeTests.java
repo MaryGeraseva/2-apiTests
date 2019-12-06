@@ -1,10 +1,12 @@
-package rest.petStoreTests.PetTests.putTests;
+package petStoreTests.putTests;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import common.BaseTest;
+import common.reporting.ReplaceCamelCase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -13,19 +15,20 @@ import petStore.models.builders.PetBuilderJackson;
 import petStore.responses.StatusCodes;
 import petStore.сontrollers.PetController;
 
-public class PetPutNegativeTests extends BaseTest {
+@DisplayNameGeneration(ReplaceCamelCase.class)
+public class PutNegativeTests extends BaseTest {
 
     private Response response;
     private PetController controller;
     private PetAssertions assertions;
     private PetBuilderJackson builder;
 
-    @ParameterizedTest(name = "Pet endpoint PUT status 404 test #{0}")
+    @ParameterizedTest(name = "PUT status 404 test #{0}")
     @ValueSource(ints = {1, 2, 3})
-    @Step("Pet endpoint PUT positive test started ")
+    @Step("Pet endpoint PUT negative test started")
     @Description(value = "test checks PUT request with nonexistent id, " +
-            "expected response status code 404 and Pet not found message")
-    public void PetPutNoFoundTest404(int testId) {
+            "expected response status code 404 and \"Pet not found message\"")
+    public void putNoFoundTest404(int testId) {
         controller = new PetController();
         assertions = new PetAssertions();
         builder = new PetBuilderJackson();
@@ -46,12 +49,12 @@ public class PetPutNegativeTests extends BaseTest {
         assertions.assertResponseBodyAndStatus(response, StatusCodes.CODE404);
     }
 
-    @ParameterizedTest(name = "Pet endpoint PUT status 400 #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#invalidId")
-    @Step("Pet endpoint PUT positive test started ")
+    @ParameterizedTest(name = "PUT status 400 #{0}")
+    @MethodSource("petStoreTests.testData.DataProvider#invalidId")
+    @Step("Pet endpoint PUT negative test started ")
     @Description(value = "test checks PUT request with invalid id, " +
-            "expected response status code 400 and Invalid ID supplied")
-    public void PetPutInvalidId400(int testId, String id) {
+            "expected response status code 400 and \"Invalid ID supplied\"")
+    public void putInvalidId400(int testId, String id) {
         controller = new PetController();
         assertions = new PetAssertions();
         builder = new PetBuilderJackson();
@@ -60,15 +63,15 @@ public class PetPutNegativeTests extends BaseTest {
         builder.setPetId(id);
         response = controller.updatePet(pet);
 
-        assertions.assertStatusCode(response, StatusCodes.CODE400);
+        assertions.assertResponseBodyAndStatus(response, StatusCodes.CODE400);
     }
 
-    @ParameterizedTest(name = "Pet endpoint POST negative test #{0}")
-    @MethodSource("rest.petStoreTests.PetTests.dataProviders.PetDataProvider#negativeWithJsonData")
-    @Step("Pet endpoint POST negative test started ")
+    @ParameterizedTest(name = "POST negative JSON test #{0}")
+    @MethodSource("petStoreTests.testData.DataProvider#negativeWithJsonData")
+    @Step("Pet endpoint POST negative test started")
     @Description(value = "test checks POST request with empty request body, with additional nonexistent field," +
-            "without required fields, expected result status code 405")
-    public void PetPutNegativeTestWithJsonData(int testId, String json) {
+            "without required fields, expected result status code 405 and message \"Validation exception\"")
+    public void putNegativeTestWithJsonData405(int testId, String json) {
         controller = new PetController();
         assertions = new PetAssertions();
 

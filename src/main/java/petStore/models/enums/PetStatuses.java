@@ -3,7 +3,7 @@ package petStore.models.enums;
 public enum PetStatuses {
     AVAILABLE, PENDING, SOLD;
 
-    public String nameLowerCase(){
+    public String nameLowerCase() {
         return name().toLowerCase();
     }
 

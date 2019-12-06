@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import common.reporting.LogInstance;
 import io.qameta.allure.Step;
-import io.restassured.internal.assertion.Assertion;
 import io.restassured.response.Response;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
@@ -16,25 +15,24 @@ import petStore.responses.StatusCodes;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
 
 public class PetAssertions {
 
     private Logger log = LogInstance.getLogger();
 
-    @Step("check responses status code")
+    @Step("check response status code")
     public void assertStatusCode(Response response, StatusCodes expectedStatus) {
         int actualCode = response.getStatusCode();
         int expectedCode = expectedStatus.getCode();
 
         Assertions.assertEquals(expectedCode, actualCode,
-                String.format("didn't get expected result, actual status code is %s instead of %s", actualCode, expectedCode));
+                String.format("didn't get expected result, actual status code is %s instead of %s",
+                        actualCode, expectedCode));
         log.info(String.format("got status code %s", actualCode));
     }
 
-    @Step("check responses status code iis client error")
+    @Step("check response status code is client error")
     public void assertStatusCodeIsClientError(Response response) {
         int actualCode = response.getStatusCode();
         Assertions.assertTrue(String.valueOf(actualCode).startsWith("4"),
@@ -42,17 +40,17 @@ public class PetAssertions {
         log.info(String.format("got status code %s", actualCode));
     }
 
-    @Step("check responses status message")
+    @Step("check response status message")
     public void assertStatusMessage(Response response, StatusCodes expectedStatus) {
         String actualMessage = response.getStatusLine();
         String expectedMessage = expectedStatus.getStatusMessage();
         Assertions.assertTrue(actualMessage.contains(expectedMessage),
                 String.format("didn't get expected result, actual status line \"%s\" doesn't contain message \"%s\"",
-                                actualMessage, expectedMessage));
+                        actualMessage, expectedMessage));
         log.info(String.format("got status message %s", expectedMessage));
     }
 
-    @Step("check responses body")
+    @Step("check response body")
     public void assertResponseBody(Response response, JsonNode requestPet) {
         PetModel actualPet = response.as(PetModel.class);
         PetModel expectedPet = null;
@@ -65,16 +63,20 @@ public class PetAssertions {
             e.printStackTrace();
         }
 
-        Assertions.assertEquals(expectedPet, actualPet, "didn't get expected result");
+        Assertions.assertEquals(expectedPet, actualPet,
+                String.format("didn't get expected result, got %s instead of %s",
+                        actualPet.toString(), expectedPet.toString()));
         log.info(String.format("got responses %s", actualPet.toString()));
     }
 
-    @Step("check responses status code, type, message")
+    @Step("check response status code, type, message")
     public void assertResponseBody(Response response, StatusCodes expectedCode) {
         PetStoreResponse actualResponse = response.as(PetStoreResponse.class);
         PetStoreResponse expectedResponse = new PetStoreResponse(expectedCode);
 
-        Assertions.assertEquals(expectedResponse, actualResponse, "didn't get expected result");
+        Assertions.assertEquals(expectedResponse, actualResponse,
+                String.format("didn't get expected result, got %s instead of %s",
+                        actualResponse.toString(), expectedResponse.toString()));
         log.info(String.format("got responses %s", actualResponse.toString()));
     }
 
@@ -83,7 +85,8 @@ public class PetAssertions {
         String expectedField = pet.get(field).asText().toLowerCase();
         String actualField = response.as(JsonNode.class).get(field).asText();
 
-        Assertions.assertEquals(expectedField, actualField, "didn't get expected result");
+        Assertions.assertEquals(expectedField, actualField,
+                String.format("didn't get expected result, got %s instead of %s", actualField, expectedField));
         log.info(String.format("expected field: %s, actual field: %s", expectedField, actualField));
     }
 
@@ -92,7 +95,8 @@ public class PetAssertions {
         String expectedField = pet.get(field).get(nestedField).asText().toLowerCase();
         String actualField = response.as(JsonNode.class).get(field).get(nestedField).asText();
 
-        Assertions.assertEquals(expectedField, actualField, "didn't get expected result");
+        Assertions.assertEquals(expectedField, actualField,
+                String.format("didn't get expected result, got %s instead of %s", actualField, expectedField));
         log.info(String.format("expected field: %s, actual field: %s", expectedField, actualField));
     }
 
@@ -102,19 +106,20 @@ public class PetAssertions {
         ObjectMapper mapper = new ObjectMapper();
         String s = response.body().asString();
         try {
-            petList = mapper.readValue(s, new TypeReference<List<PetModel>>(){});
+            petList = mapper.readValue(s, new TypeReference<List<PetModel>>() {
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        for (PetModel pet: petList) {
+        for (PetModel pet : petList) {
             Assertions.assertTrue(status.contains(pet.getStatus()),
                     String.format("didn't get expected result, some pet didn't have expected status \"%s\"", status));
         }
         log.info(String.format("all pets in list have expected status \"%s\", pet quantity is %d", status, petList.size()));
     }
 
-    @Step("check responses status code, message and body")
+    @Step("check response status code, message and body")
     public void assertResponseBodyAndStatus(Response response, StatusCodes expectedStatus) {
         Assertions.assertAll(
                 () -> assertStatusCode(response, expectedStatus),
@@ -123,7 +128,7 @@ public class PetAssertions {
         );
     }
 
-    @Step("check responses status code, message and body")
+    @Step("check response status code, message and body")
     public void assertResponseBodyAndStatus(Response response, JsonNode requestPet, StatusCodes expectedStatus) {
         Assertions.assertAll(
                 () -> assertStatusCode(response, expectedStatus),
@@ -132,12 +137,11 @@ public class PetAssertions {
         );
     }
 
-    @Step("check responses status code and message")
+    @Step("check response status code and message")
     public void assertResponseMessageAndStatus(Response response, StatusCodes expectedStatus) {
         Assertions.assertAll(
                 () -> assertStatusCode(response, expectedStatus),
                 () -> assertStatusMessage(response, expectedStatus)
         );
     }
-
 }

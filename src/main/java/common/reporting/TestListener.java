@@ -12,7 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
 
-public class TestListener implements TestWatcher{
+public class TestListener implements TestWatcher {
 
     private Logger log;
 

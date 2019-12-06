@@ -25,7 +25,7 @@ public class LogAppender {
         return appender;
     }
 
-    public static ConsoleAppender consoleAppenderConfig(){
+    public static ConsoleAppender consoleAppenderConfig() {
         ConsoleAppender consoleAppender = new ConsoleAppender();
         consoleAppender.setLayout(new EnhancedPatternLayout("%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
         consoleAppender.setThreshold(Level.TRACE);

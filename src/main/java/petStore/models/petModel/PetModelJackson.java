@@ -29,7 +29,7 @@ public class PetModelJackson {
 
     public ArrayNode getPhotoUrls(List<String> urls) {
         createPhotoUrls();
-        for(String url : urls) {
+        for (String url : urls) {
             photoUrls.add(url);
         }
         return photoUrls;
@@ -42,7 +42,7 @@ public class PetModelJackson {
 
     public ArrayNode getTags(Map<String, String> tagItems) {
         createTags();
-        for(Map.Entry<String, String> entry : tagItems.entrySet()) {
+        for (Map.Entry<String, String> entry : tagItems.entrySet()) {
             ObjectNode tagItem = factory.objectNode();
             tagItem.put(PetFields.ID.getValue(), entry.getKey());
             tagItem.put(PetFields.NAME.getValue(), entry.getValue());

@@ -1,4 +1,4 @@
-package rest.petStoreTests.PetTests.getTests;
+package petStoreTests.getTests;
 
 import common.BaseTest;
 import common.reporting.ReplaceCamelCase;
@@ -14,7 +14,7 @@ import petStore.сontrollers.PetListController;
 
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetGetByStatusPositiveTests extends BaseTest {
+public class GetByStatusPositiveTests extends BaseTest {
 
     @ParameterizedTest(name = "GET by status positive test #{0}")
     @CsvSource({
@@ -26,10 +26,10 @@ public class PetGetByStatusPositiveTests extends BaseTest {
             "6, 'pending'",
             "7, 'sold'"
     })
-    @Step("Pet endpoint GET pet list by status positive test started ")
+    @Step("Pet endpoint GET pet list by status positive test started")
     @Description(value = "test checks GET pet list request with valid \"status\" field value, " +
             "expected response status code 200, message \"OK\" and and well-formed json body")
-    public void PetGetByStatusPositiveTest200(int testId, String status) {
+    public void getByStatusPositiveTest200(int testId, String status) {
         PetListController controller = new PetListController();
         PetAssertions assertions = new PetAssertions();
 

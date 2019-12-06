@@ -2,7 +2,6 @@ package petStore.models.petModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
 import java.util.Objects;
 
 public class Category {
@@ -48,9 +47,9 @@ public class Category {
         if (!(o instanceof Category)) return false;
         Category category = (Category) o;
         return Objects.equals(getName(), category.getName()) &&
-               (Objects.equals(getId(), category.getId()) ||
-               (Objects.equals(getId(), null) &&
-                Objects.equals(category.getId(), "0")));
+                (Objects.equals(getId(), category.getId()) ||
+                        (Objects.equals(getId(), null) &&
+                                Objects.equals(category.getId(), "0")));
     }
 
     @Override

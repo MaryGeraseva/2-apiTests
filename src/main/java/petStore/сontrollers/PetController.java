@@ -18,57 +18,55 @@ public class PetController extends AbstractController {
     public Response addPet(JsonNode pet) {
         log.info(String.format("make POST request \n%s", pet.toString()));
         return given()
-                    .body(pet)
+                .body(pet)
                 .when()
-                    .post();
+                .post();
     }
 
     public Response addPet(String json) {
         log.info(String.format("make POST request \n%s", json));
         return given()
-                    .body(json)
+                .body(json)
                 .when()
-                    .post();
+                .post();
     }
 
     public Response updatePet(JsonNode pet) {
         log.info(String.format("make PUT request \n%s", pet.toString()));
         return given()
-                    .body(pet)
+                .body(pet)
                 .when()
-                    .put();
+                .put();
     }
 
     public Response updatePet(String json) {
         log.info(String.format("make PUT request \n%s", json));
         return given()
-                    .body(json)
+                .body(json)
                 .when()
-                    .put();
+                .put();
     }
 
     public Response deletePet(String id) {
         return given()
-               .when()
-                     .delete(id);
+                .when()
+                .delete(id);
     }
-
-//    public Object getPetById(String id) {
-//        Response response = given()
-//                            .when()
-//                                .get(id);
-//        if (response.statusCode() == 200) {
-//            return response.as(PetModel.class);
-//        } else {
-//            return response.as(PetStoreResponse.class);
-//        }
-//    }
 
     public Response getPetById(String id) {
         return given()
                 .when()
-                    .get(id);
+                .get(id);
     }
 
-
+    public Response patchPet() {
+        return given()
+                .when()
+                .patch();
+    }
+    public Response headPet() {
+        return given()
+                .when()
+                .head();
+    }
 }
