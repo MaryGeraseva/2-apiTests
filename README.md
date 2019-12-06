@@ -16,17 +16,7 @@ There is also used Allure reporting features for showing the most important test
 ### How to run the project on Windows OS
 
 ### How to run the tests suite  
-* open command line
-* go to the project folder  
-`
-cd [$user.dir]/webElementsTests
-`
-* run testNG suite by default *(on chrome locally)*   
-`
-mvn clean test -Dsurefire.suiteXmlFiles=.\src\test\resources\xml\allTestsSuite.xml
-`  
 
-* generate allure report `mvn allure:serve`
 
 ## For feedback
 **e-mail:** mary.geraseva@gmail.com  
